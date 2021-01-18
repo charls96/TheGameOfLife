@@ -8,7 +8,7 @@ node_modules/
 dist/
 
 # Compiled Java class files
-/./bin/
+**/bin/
 *.class
 
 # Eclipse IDE
