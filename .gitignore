@@ -8,10 +8,13 @@ node_modules/
 dist/
 
 # Compiled Java class files
+/bin/
 *.class
 
-# Compiled Python bytecode
-*.py[cod]
+# Eclipse IDE
+.project
+.classpath
+/.settings/
 
 # Log files
 *.log
