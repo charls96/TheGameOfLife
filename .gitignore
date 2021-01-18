@@ -8,13 +8,14 @@ node_modules/
 dist/
 
 # Compiled Java class files
-/bin/
+/./bin/
 *.class
 
 # Eclipse IDE
 .project
 .classpath
 /.settings/
+**/org.eclipse.jdt.core.prefs
 
 # Log files
 *.log
