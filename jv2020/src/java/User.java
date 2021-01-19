@@ -6,10 +6,11 @@ public class User {
 	private String address;
 	private String mail;
 	private String birthDate;
-	private String registerDate;
+	private String registeredDate;
 	private String password;
 	private String role;
 	
+
 	public String getNif() {
 		return nif;
 	}
@@ -34,8 +35,8 @@ public class User {
 		return birthDate;
 	}
 	
-	public String getRegisterDate() {
-		return registerDate;
+	public String getRegisteredDate() {
+		return registeredDate;
 	}
 	
 	public String getPassword() {
@@ -70,8 +71,8 @@ public class User {
 		this.birthDate = birthDate;
 	}
 	
-	public void setRegisterDate(String registerDate) {
-		this.registerDate = registerDate;
+	public void setRegisteredDate(String registerDate) {
+		this.registeredDate = registerDate;
 	}
 	
 	public void setPassword(String password) {
