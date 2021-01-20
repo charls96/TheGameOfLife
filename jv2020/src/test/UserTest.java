@@ -15,14 +15,16 @@ public class UserTest {
 	@BeforeAll
 	public static void iniciarlizarDatosFijos() {
 		// Objetos no modicados en las pruebas.
-		user1 = new User("00000001R", 
-				"Luis", "Roca Mora",
-				"Roncal, 10, 30130, Murcia", 
-				"luis@gmail.com", 
-				"2000-10-12",
-				"2020-10-12", 
-				"Miau#12", 
-				"REGISTERED");
+		user1 = new User("00000001R"
+				,"Luis"
+				,"Roca Mora"
+				,"Roncal, 10, 30130, Murcia"
+				,"luis@gmail.com"
+				,"2000-10-12"
+				,"2020-10-12"
+				,"Miau#12", 
+				"REGISTERED"
+				);
 	}
 
 	/**
@@ -66,7 +68,7 @@ public class UserTest {
 		assertEquals(user2.getMail(), "luis@gmail.com");
 	}
 	@Test
-	public void testSetBirthDate1() {
+	public void testSetBirthDate() {
 		user2.setBirthDate("1999-12-12");
 		assertEquals(user2.getBirthDate(), "1999-12-12");
 	}
@@ -143,10 +145,10 @@ public class UserTest {
 	}
 	
 	@Test
-	public void testSetBirthDate() {	
-			user1.setBirthDate("1988-05-10");
+	public void testSetBirthDateFuture() {	
+			user1.setBirthDate("2025-10-12");
 			// No debe haber cambios...
-			assertEquals(user1.getBirthDate(), "1988-05-10");
+			assertEquals(user1.getBirthDate(), "2000-10-10");
 	}
 	
 	@Test
@@ -172,8 +174,7 @@ public class UserTest {
 			user2.setPassword(null);
 			fail("No debe llegar aquí...");
 		} 
-		catch (AssertionError e) { 
-		}
+		catch (AssertionError e) { }
 	}
 
 	@Test
@@ -189,8 +190,7 @@ public class UserTest {
 			user2.setRole(null);
 			fail("No debe llegar aquí...");
 		} 
-		catch (AssertionError e) { 		
-		}
+		catch (AssertionError e) { }
 	}
 
 } 

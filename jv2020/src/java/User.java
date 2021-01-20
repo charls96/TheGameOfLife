@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class User {
 
 	private String nif;
@@ -9,7 +11,34 @@ public class User {
 	private String registeredDate;
 	private String password;
 	private String role;
+
+	public User(String nif, String name, String surnames
+			, String address, String mail, String birthDate,
+			String registeredDate, String password, String role) {
+		this.nif = nif;
+		this.name = name;
+		this.surnames = surnames;
+		this.address = address;
+		this.mail = mail;
+		this.birthDate = birthDate;
+		this.registeredDate = registeredDate;
+		this.password = password;
+		this.role = role;
+	}
 	
+
+	public User() {
+		this.nif = new String("00000000T");
+		this.name = new String("name");
+		this.surnames = "surname surname";
+		this.address = "address";
+		this.mail = "mail@mail.com";
+		this.birthDate = "2000-10-10";
+		this.registeredDate = LocalDate.now().toString();
+		this.password = "Miau#0";
+		this.role = "GUEST";
+	}
+
 
 	public String getNif() {
 		return nif;
@@ -71,8 +100,8 @@ public class User {
 		this.birthDate = birthDate;
 	}
 	
-	public void setRegisteredDate(String registerDate) {
-		this.registeredDate = registerDate;
+	public void setRegisteredDate(String registeredDate) {
+		this.registeredDate = registeredDate;
 	}
 	
 	public void setPassword(String password) {
