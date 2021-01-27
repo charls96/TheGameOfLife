@@ -1,4 +1,6 @@
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.fail;
 
 import org.junit.jupiter.api.BeforeAll;
@@ -15,6 +17,14 @@ public class UserTest {
 	@BeforeAll
 	public static void iniciarlizarDatosFijos() {
 		// Objetos no modicados en las pruebas.
+		
+	}
+
+	/**
+	 * Método que se ejecuta antes de cada pruebas.
+	 */
+	@BeforeEach
+	public void resetData() {	
 		user1 = new User("00000001R"
 				,"Luis"
 				,"Roca Mora"
@@ -25,18 +35,50 @@ public class UserTest {
 				,"Miau#12", 
 				"REGISTERED"
 				);
-	}
-
-	/**
-	 * Método que se ejecuta antes de cada pruebas.
-	 */
-	@BeforeEach
-	public void resetData() {	
+		
 		user2 = new User();
 	}
-
-
+	
 	// Test's CON DATOS VALIDOS
+	
+	@Test
+	public void testCopia() {
+		
+		User user;
+		
+		user = new User(user1);
+		
+		user = user1.clone();
+		
+		assertNotSame(user, user1);
+		
+		assertNotSame(user.getNif(), (user1.getNif()));
+		assertEquals(user.getNif(), (user1.getNif()));
+		
+		assertNotSame(user.getName(), (user1.getName()));
+		assertEquals(user.getName(), (user1.getName()));
+		
+		assertNotSame(user.getSurnames(), (user1.getSurnames()));
+		assertEquals(user.getSurnames(), (user1.getSurnames()));
+		
+		assertNotSame(user.getAddress(), (user1.getAddress()));
+		assertEquals(user.getAddress(), (user1.getAddress()));
+		
+		assertNotSame(user.getMail(), (user1.getMail()));
+		assertEquals(user.getMail(), (user1.getMail()));
+		
+		assertNotSame(user.getBirthDate(), (user1.getBirthDate()));
+		assertEquals(user.getBirthDate(), (user1.getBirthDate()));
+		
+		assertNotSame(user.getRegisteredDate(), (user1.getRegisteredDate()));
+		assertEquals(user.getRegisteredDate(), (user1.getRegisteredDate()));
+		
+		assertNotSame(user.getPassword(), (user1.getPassword()));
+		assertEquals(user.getPassword(), (user1.getPassword()));
+		
+		assertNotSame(user.getRole(), (user1.getRole()));
+		assertEquals(user.getRole(), (user1.getRole()));
+	}
 	
 	@Test
 	public void testSetNif() {
@@ -67,6 +109,7 @@ public class UserTest {
 		user2.setMail("luis@gmail.com");
 		assertEquals(user2.getMail(), "luis@gmail.com");
 	}
+	
 	@Test
 	public void testSetBirthDate() {
 		user2.setBirthDate("1999-12-12");
@@ -147,6 +190,13 @@ public class UserTest {
 	@Test
 	public void testSetBirthDateFuture() {	
 			user1.setBirthDate("2025-10-12");
+			// No debe haber cambios...
+			assertEquals(user1.getBirthDate(), "2000-10-10");
+	}
+	
+	@Test
+	public void testSetBirthDateMayor() {	
+			user1.setBirthDate("2018-10-12");
 			// No debe haber cambios...
 			assertEquals(user1.getBirthDate(), "2000-10-10");
 	}
