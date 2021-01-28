@@ -25,24 +25,23 @@ public class User {
 		this.setPassword(password);
 		this.setRole(role);
 	}
-	
+
 	public User() {
-		this(new String("00000000T"),
-				new String("name"),
-				"surname surname",
-				"address",
-				"mail@mail.com",
-				"2000-10-10",
-				LocalDate.now().toString(),
-				"Miau#0",
-				"GUEST"
-				);
+		this.nif = new String();
+		this.name = new String();
+		this.surnames = new String();
+		this.address = new String();
+		this.mail = new String();
+		this.birthDate = new String();
+		this.registeredDate = new String();
+		this.password = new String();
+		this.role = new String();
 	}
 
 	public User(User usuario) {
-		
+
 		assert usuario != null;
-		
+
 		this.nif = new String(usuario.nif);
 		this.name = new String(usuario.name);
 		this.surnames = new String(usuario.surnames);
@@ -53,13 +52,13 @@ public class User {
 		this.password = new String(usuario.password);
 		this.role = new String(usuario.role);	
 	}
-	
+
 	public String getNif() {
 		return nif;
 	}
 
 	public String getName() {
-		
+
 		return name;
 	}
 
@@ -92,18 +91,18 @@ public class User {
 	}
 
 	public void setNif(String nif) {	
-		
+
 		assert nif != null;
-		
+
 		if (isValidNif(nif)) {
 			this.nif = nif;
 		}
 	}
 
 	private boolean isValidNif(String nif) {
-		
+
 		// TO-DO lógica validación
-		
+
 		return true;
 	}
 
@@ -124,18 +123,18 @@ public class User {
 	}
 
 	public void setBirthDate(String birthDate) {
-		
+
 		assert birthDate != null;
-		
+
 		if (isValidBirthDate()) {
 			this.birthDate = birthDate;
 		}
 	}
 
 	private boolean isValidBirthDate() {
-		
+
 		// TO-DO lógica validación
-		
+
 		return true;
 	}
 
@@ -153,15 +152,33 @@ public class User {
 
 	@Override
 	public User clone() {
-		return new User(this);
+		return  new User(this);
 	}
+		
 
 	@Override
 	public String toString() {
-		return "User [nif=" + nif + ", name=" + name + ", surnames=" + surnames + ", address=" + address + ", mail="
-				+ mail + ", birthDate=" + birthDate + ", registeredDate=" + registeredDate + ", password=" + password
-				+ ", role=" + role + "]";
+		return String.format(
+				"%15s %-15s\n"
+						+ "%15s %-15s\n"
+						+ "%15s %-15s\n"
+						+ "%15s %-15s\n"
+						+ "%15s %-15s\n"
+						+ "%15s %-15s\n"
+						+ "%15s %-15s\n"
+						+ "%15s %-15s\n"
+						+ "%15s %-15s",
+						"nif:", nif, 
+						"name:", name, 
+						"surnames:", surnames, 
+						"address:", address, 
+						"mail:", mail, 
+						"birthDate:", birthDate, 
+						"registeredDate:", registeredDate, 
+						"password:", password, 
+						"role:", role
+				);
 	}
-	
-	
+
+
 }

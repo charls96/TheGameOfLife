@@ -46,7 +46,7 @@ public class UserTest {
 		
 		User user;
 		
-		user = new User(user1);
+		//user = new User(user1);
 		
 		user = user1.clone();
 		

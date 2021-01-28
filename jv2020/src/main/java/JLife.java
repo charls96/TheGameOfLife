@@ -1,11 +1,13 @@
-
 public class JLife {
 
+	public final static int MAX_DATA = 10;
+
+	public static User[] UsersData = new User[MAX_DATA];
+	public static Session[] SessionsData = new Session[MAX_DATA];
+
 	public static void main(String[] args) {
-		
-		User[] UsersData = new User[10];
-		
-		User user = new User("00000000T"
+
+		User userTest = new User("00000001R"
 				,"Luis"
 				,"Roca Mora"
 				,"Roncal, 10, 30130, Murcia"
@@ -16,12 +18,30 @@ public class JLife {
 				"REGISTERED"
 				);
 		
-		System.out.println(user);
+		System.out.println(userTest);
 		
+		
+		loadIntegratedUsers();
 
+		Session session = new Session(null, );	
+
+		if (isLoginOk()) {
+		
+		}
+		
+	}
+
+	private static void loadIntegratedUsers() {
 		
 		
 	}
-	
+
+	private static boolean isLoginOk() {
+
+
+		return false;
+	}
+
+
 
 }
