@@ -38,19 +38,19 @@ public class User {
 		this.role = new String();
 	}
 
-	public User(User usuario) {
+	public User(User user) {
 
-		assert usuario != null;
+		assert user != null;
 
-		this.nif = new String(usuario.nif);
-		this.name = new String(usuario.name);
-		this.surnames = new String(usuario.surnames);
-		this.address = new String(usuario.address);
-		this.mail = new String(usuario.mail);
-		this.birthDate = new String(usuario.birthDate);
-		this.registeredDate = new String(usuario.registeredDate);
-		this.password = new String(usuario.password);
-		this.role = new String(usuario.role);	
+		this.nif = new String(user.nif);
+		this.name = new String(user.name);
+		this.surnames = new String(user.surnames);
+		this.address = new String(user.address);
+		this.mail = new String(user.mail);
+		this.birthDate = new String(user.birthDate);
+		this.registeredDate = new String(user.registeredDate);
+		this.password = new String(user.password);
+		this.role = new String(user.role);	
 	}
 
 	public String getNif() {
@@ -155,7 +155,6 @@ public class User {
 		return  new User(this);
 	}
 		
-
 	@Override
 	public String toString() {
 		return String.format(

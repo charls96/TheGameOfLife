@@ -1,5 +1,4 @@
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.fail;
 
@@ -15,16 +14,8 @@ public class UserTest {
 	 * Método que se ejecuta antes de cada @Test para preparar datos de prueba.
 	 */
 	@BeforeAll
-	public static void iniciarlizarDatosFijos() {
+	public static void initData() {
 		// Objetos no modicados en las pruebas.
-		
-	}
-
-	/**
-	 * Método que se ejecuta antes de cada pruebas.
-	 */
-	@BeforeEach
-	public void resetData() {	
 		user1 = new User("00000001R"
 				,"Luis"
 				,"Roca Mora"
@@ -35,14 +26,20 @@ public class UserTest {
 				,"Miau#12", 
 				"REGISTERED"
 				);
-		
+	}
+
+	/**
+	 * Método que se ejecuta antes de cada pruebas.
+	 */
+	@BeforeEach
+	public void resetData() {		
 		user2 = new User();
 	}
 	
 	// Test's CON DATOS VALIDOS
 	
 	@Test
-	public void testCopia() {
+	public void testClon() {
 		
 		User user;
 		
