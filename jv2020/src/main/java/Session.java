@@ -3,7 +3,7 @@ import java.time.LocalTime;
 
 public class Session {
 	
-	private static final String[] stateSession = {"ACTIVE", "CLOSED"};
+	public static final String[] stateSession = {"ACTIVE", "CLOSED"};
 	
 	private User user;
 	private String date;
