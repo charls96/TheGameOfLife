@@ -2,6 +2,8 @@ import java.time.LocalDate;
 
 public class User {
 
+	public static final String[] roles = { "GUEST", "REGISTERED", "ADMIN" };
+	
 	private String nif;
 	private String name;
 	private String surnames;
@@ -35,7 +37,7 @@ public class User {
 		this.birthDate = new String();
 		this.registeredDate = new String();
 		this.password = new String();
-		this.role = new String();
+		this.role = User.roles[0];
 	}
 
 	public User(User user) {

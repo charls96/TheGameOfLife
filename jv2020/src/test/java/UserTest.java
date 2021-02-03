@@ -24,7 +24,7 @@ public class UserTest {
 				,"2000-10-12"
 				,"2020-10-12"
 				,"Miau#12", 
-				"REGISTERED"
+				User "REGISTERED"
 				);
 	}
 
