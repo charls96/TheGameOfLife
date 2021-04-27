@@ -1,3 +1,4 @@
+package models;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertTrue;
@@ -7,6 +8,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import models.User.RoleUser;
+import utils.EasyDate;
 
 class SessionTest {
 
@@ -21,15 +25,15 @@ class SessionTest {
 	@BeforeAll
 	public static void initData() {
 		// Objetos no modicados en las pruebas.
-		user = new User("00000001R"
-				,"Luis"
-				,"Roca Mora"
-				,"Roncal, 10, 30130, Murcia"
-				,"luis@gmail.com"
-				,"2000-10-12"
-				,"2020-10-12"
-				,"Miau#12", 
-				"REGISTERED"
+		user = new User(new Nif("00000001R"),
+				"Luis",
+				"Roca Mora",
+				new Address("Roncal", "10", "30130", "Murcia"),
+				new Mail("luis@gmail.com"),
+				new EasyDate(2000, 10, 12),
+				new EasyDate(2020, 10, 12),
+				new Password("Miau#12"), 
+				RoleUser.REGISTERED
 				);
 		session1 = new Session(user);
 	}
