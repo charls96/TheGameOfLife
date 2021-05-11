@@ -1,6 +1,5 @@
 package models;
 
-import modelo.ModelsException;
 import utils.Regex;
 
 public class Nif {
