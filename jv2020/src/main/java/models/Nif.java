@@ -1,5 +1,6 @@
 package models;
 
+import modelo.ModelsException;
 import utils.Regex;
 
 public class Nif {
@@ -27,6 +28,7 @@ public class Nif {
 		if (isValidNif(text)) {
 			this.text = text;
 		}
+		throw new ModelsException("Nif: null o formato no válido");
 	}
 
 	private boolean isValidNif(String text) {
