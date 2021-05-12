@@ -74,6 +74,7 @@ public class Simulation implements Identifiable {
 		if (isValidDate(date)) {
 			this.date = date;
 		}
+		throw new ModelsException("Date: null");
 	}
 	
 	private boolean isValidDate(EasyDate date) {	
