@@ -89,10 +89,13 @@ public class Person {
 
 		if (isValidBirthDate(birthDate)) {
 			this.birthDate = birthDate;
+			return;
 		}
+
+		throw new ModelsException("birthDate: no válida");
 	}
 
-	private boolean isValidBirthDate(EasyDate birthDate) {	
+	private boolean isValidBirthDate(EasyDate birthDate) {
 		return birthDate.isBefore(EasyDate.now().minusYears(16));
 	}
 
