@@ -28,13 +28,16 @@ public class Address {
 	}
 
 	public void setStreet(String street) {
+		assert street != null;
 		if (isValidStreet(street)) {
 			this.street = street;
+			return;
 		}
+		throw new ModelsException("Calle incorrecta.");
 	}
 
-	private boolean isValidStreet(String calle) {
-		return calle != null && calle.matches(Regex.STREET_NAME);
+	private boolean isValidStreet(String street) {
+		return street != null && street.matches(Regex.STREET_NAME);
 	}
 
 	public String getNumber() {
@@ -42,9 +45,13 @@ public class Address {
 	}
 
 	public void setNumber(String number) {
+		assert number != null;
 		if (isValidNumber(number)) {
 			this.number = number;
+			return;
 		}
+		throw new ModelsException("Número incorrecto.");
+
 	}
 
 	private boolean isValidNumber(String number) {
@@ -56,10 +63,14 @@ public class Address {
 	}
 
 	public void setPostalCode(String postalCode) {
+		assert postalCode != null;
 		if (isValidPostalCode(postalCode)) {
 			this.postalCode = postalCode;
+			return;
 		}
+		throw new ModelsException("Código postal incorrecto.");
 	}
+
 
 	private boolean isValidPostalCode(String postalCode) {
 		return postalCode != null && postalCode.matches(Regex.POSTAL_CODE);
@@ -70,9 +81,12 @@ public class Address {
 	}
 
 	public void setLocation(String location) {
+		assert location != null;
 		if (isValidLocation(location)) {
 			this.location = location;
+			return;
 		}
+		throw new ModelsException("Ubicación incorrecta.");
 	}
 	
 	private boolean isValidLocation(String location) {
