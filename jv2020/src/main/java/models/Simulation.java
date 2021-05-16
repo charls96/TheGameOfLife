@@ -90,6 +90,7 @@ public class Simulation implements Identifiable {
 		if (simulationCicles > 0) {
 			this.simulationCicles = simulationCicles;
 		}
+		throw new ModelsException("Simulation: Ciclos fuera de rango...");
 	}
 	
 	
