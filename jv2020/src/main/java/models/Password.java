@@ -24,8 +24,15 @@ public class Password {
 	}
 
 	public void setText(String text) {
+		assert text != null;
 		if (isValidPassword(text)) {
 			this.text = Cryptography.cesar(text);
+		}
+		else {
+			if (this.text == null) {							
+				this.text = new Password().getText();
+			}
+			throw new ModelsException("Formato no válido.");
 		}
 	}
 
