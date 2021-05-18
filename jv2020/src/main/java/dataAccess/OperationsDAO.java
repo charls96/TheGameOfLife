@@ -12,7 +12,7 @@ public interface OperationsDAO {
 	public Identifiable delete(String id) throws DataAccessException;
 	public Identifiable delete(Identifiable obj) throws DataAccessException;
 	public Identifiable update(Identifiable obj) throws DataAccessException;
-	public String toStringDatos();
+	public String toStringData();
 	public String toStringIds();
 	public void deleteAll();
 	

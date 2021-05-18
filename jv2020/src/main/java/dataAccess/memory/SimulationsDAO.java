@@ -70,7 +70,7 @@ public class SimulationsDAO extends IndexSortTemplate implements OperationsDAO {
 	}
 
 	@Override
-	public String toStringDatos() {
+	public String toStringData() {
 		// TODO Auto-generated method stub
 		return null;
 	}
