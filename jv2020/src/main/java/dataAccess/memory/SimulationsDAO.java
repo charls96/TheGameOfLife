@@ -40,6 +40,11 @@ public class SimulationsDAO extends IndexSortTemplate implements OperationsDAO {
 		return null;
 	}
 
+	public List<Identifiable> findAllUser(String userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	@Override
 	public void create(Identifiable simulation) throws DataAccessException {
 		assert simulation != null;

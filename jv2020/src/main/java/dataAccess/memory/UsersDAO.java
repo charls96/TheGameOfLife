@@ -10,6 +10,7 @@ import jLife.Configuration;
 import models.Address;
 import models.Identifiable;
 import models.Mail;
+import models.ModelsException;
 import models.Nif;
 import models.Password;
 import models.User;
@@ -58,7 +59,7 @@ public class UsersDAO extends IndexSortTemplate implements OperationsDAO {
 					new EasyDate(2021, 1, 14),
 					new Password(Configuration.get().getProperty("password.default")), 
 					RoleUser.REGISTERED
-					));
+					)));
 		} 
 		catch (ModelsException e) {
 			e.printStackTrace();
