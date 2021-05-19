@@ -5,6 +5,7 @@ import java.util.List;
 
 import dataAccess.DataAccessException;
 import dataAccess.OperationsDAO;
+import dataAccess.memory.IndexSortTemplate;
 import models.Identifiable;
 import models.User;
 
@@ -24,7 +25,7 @@ public class SimulationsDAO extends IndexSortTemplate implements OperationsDAO {
 		}
 		return instance;
 	}
-	
+
 	@Override
 	public Identifiable find(String id) {
 		int pos = this.indexSort(this.simulationsData, id);
@@ -36,8 +37,8 @@ public class SimulationsDAO extends IndexSortTemplate implements OperationsDAO {
 
 	@Override
 	public List<Identifiable> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return simulationsData;
 	}
 
 	public List<Identifiable> findAllUser(String userId) {
