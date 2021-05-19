@@ -2,8 +2,8 @@ package userAccess;
 
 import java.util.Scanner;
 
-import dataAccess.Data;
-import models.Identifiable;
+import dataAccess.DataFacade;
+import jLife.Configuration;
 import models.Password;
 import models.Session;
 import models.Simulation;
@@ -12,7 +12,7 @@ import utils.EasyDate;
 
 public class UserAccess {
 	
-	private final int MAX_ATTEMPTS = 3;
+	private final int MAX_ATTEMPTS = Integer.parseInt(Configuration.get().getProperty("session.maxAttempts"));
 	private Session session;
 	private Simulation simulation;
 
@@ -31,10 +31,10 @@ public class UserAccess {
 	
 	// Session
 	
-	public boolean isLoginOK(Data data) {
+	public boolean isLoginOK(DataFacade data) {
 		Scanner keyboard = new Scanner(System.in);
 		int attempts = MAX_ATTEMPTS;
-
+		System.out.println(Configuration.get().getProperty("aplication.title"));
 		do {
 			System.out.print("Usuario: ");
 			String id = keyboard.nextLine();
@@ -59,8 +59,7 @@ public class UserAccess {
 		return false;
 	}
 	
-
-	public void closeSession(Data data) {
+	public void closeSession(DataFacade data) {
 		this.session.setEndTime(EasyDate.now());
 		data.updateSession(this.session);
 		

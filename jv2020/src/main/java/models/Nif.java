@@ -1,5 +1,6 @@
 package models;
 
+import jLife.Configuration;
 import utils.Regex;
 
 public class Nif {
@@ -11,7 +12,7 @@ public class Nif {
 	}
 
 	public Nif() {
-		this.setText("00000000T");
+		this.setText(Configuration.get().getProperty("nif.default"));
 	}
 
 	public Nif(Nif nif) {
@@ -26,13 +27,13 @@ public class Nif {
 		assert text != null;
 		if (isValidNif(text)) {
 			this.text = text;
+			return;
 		}
-		throw new ModelsException("Nif: null o formato no válido");
+		throw new ModelsException("Nif: formato no válido");
 	}
 
 	private boolean isValidNif(String text) {
-		return text.matches(Regex.NIF)
-				&& isValidLetter(text);   
+		return text.matches(Regex.NIF) && isValidLetter(text);   
 	}
 
 	private boolean isValidLetter(String text) {	
