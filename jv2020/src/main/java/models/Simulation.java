@@ -73,8 +73,9 @@ public class Simulation implements Identifiable {
 		assert date != null;	
 		if (isValidDate(date)) {
 			this.date = date;
+			return;
 		}
-		throw new ModelsException("Date: null");
+		throw new ModelsException("Date: incorrecta.");
 	}
 	
 	private boolean isValidDate(EasyDate date) {	
@@ -89,6 +90,7 @@ public class Simulation implements Identifiable {
 	public void setSimulationCicles(int simulationCicles) {
 		if (simulationCicles > 0) {
 			this.simulationCicles = simulationCicles;
+			return;
 		}
 		throw new ModelsException("Simulation: Ciclos fuera de rango...");
 	}

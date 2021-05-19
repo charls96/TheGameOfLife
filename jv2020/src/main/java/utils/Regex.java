@@ -16,7 +16,7 @@ public class Regex {
 	public static final String NAME = "^[A-ZÑ][áéíóúña-z ]+";
 	public static final String SURNAMES = "^[A-ZÑ][áéíóúña-z ]+[ A-ZÑa-zñáéíóú]*";
 	public static final String LOCATION_NAME = "^[A-ZÑ][A-ZÑáéíóúña-z ]+";
-	public static final String STREET_NAME = "^[A-ZÑ][/áéíóúña-z ]+";
+	public static final String STREET_NAME = "^[A-ZÑ][/A-ZÑáéíóúña-z ]+";
 
 	public static boolean isValidFormat(String texto,  String regex) {
 		return Pattern.compile(regex).matcher(texto).matches();

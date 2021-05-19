@@ -50,7 +50,7 @@ public class UsersDAO extends IndexSortTemplate implements OperationsDAO {
 					RoleUser.REGISTERED
 					));
 
-			this.create(new User(new User(new Nif(Configuration.get().getProperty("nif.default")),
+			this.create(new User(new Nif(Configuration.get().getProperty("nif.default")),
 					Configuration.get().getProperty("user.guest"),
 					Configuration.get().getProperty("user.guest") + " " + Configuration.get().getProperty("user.guest"),
 					new Address("La Iglesia", "0", "30012", "Patiño"),
@@ -59,7 +59,7 @@ public class UsersDAO extends IndexSortTemplate implements OperationsDAO {
 					new EasyDate(2021, 1, 14),
 					new Password(Configuration.get().getProperty("password.default")), 
 					RoleUser.REGISTERED
-					)));
+					));
 		} 
 		catch (ModelsException e) {
 			e.printStackTrace();
@@ -72,9 +72,11 @@ public class UsersDAO extends IndexSortTemplate implements OperationsDAO {
 	@Override
 	public Identifiable find(String id) {
 		id = this.idEquivalence.get(id);
-		int pos = this.indexSort(this.usersData, id);
-		if (pos >= 0) {
-			return (User) this.usersData.get(pos);
+		if (id != null) {
+			int index = this.indexSort(this.usersData, id);
+			if (index > 0) {
+				return (User) this.usersData.get(index - 1);
+			}
 		}
 		return null;
 	}
