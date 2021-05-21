@@ -83,8 +83,7 @@ public class UsersDAO extends IndexSortTemplate implements OperationsDAO {
 
 	@Override
 	public List<Identifiable> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return usersData;
 	}
 
 	@Override
@@ -138,19 +137,27 @@ public class UsersDAO extends IndexSortTemplate implements OperationsDAO {
 
 	@Override
 	public String toStringData() {
-		// TODO Auto-generated method stub
-		return null;
+		StringBuilder dataString = new StringBuilder();
+		for (Identifiable user: usersData) {
+			dataString.append("\n" + user); 
+		}
+		return dataString.toString();
 	}
 
 	@Override
 	public String toStringIds() {
-		// TODO Auto-generated method stub
-		return null;
+		StringBuilder idString = new StringBuilder();
+		for (Identifiable user: usersData) {
+			idString.append("\n" + user.getId()); 
+		}
+		return idString.toString();
 	}
 
 	@Override
 	public void deleteAll() {
-		// TODO Auto-generated method stub
+		usersData.clear();
+		idEquivalence.clear();
+		loadIntegratedUsers();
 
 	}
 
