@@ -102,21 +102,39 @@ public class UsersDAO extends IndexSortTemplate implements OperationsDAO {
 
 	@Override
 	public Identifiable delete(String id) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		assert id != null;
+		
+		User user = (User) find(id);
+		if(user != null) {
+			this.usersData.remove(this.indexSort(usersData, user.getId()));
+			this.idEquivalence.remove(user.getNif().getText());
+			this.idEquivalence.remove(user.getMail().getText());
+			return user;
+		}
+		throw new DataAccessException("El usuario"  + id + "introducido no existe");
 	}
 
 	@Override
-	public Identifiable delete(Identifiable obj) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+	public Identifiable delete(Identifiable user) throws DataAccessException {
+		
+		//le pasamos user al método creado anteriormente para eliminar el usuario mediante id
+		return delete(user.getId());
 	}
 
 	@Override
-	public Identifiable update(Identifiable obj) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+	public Identifiable update(Identifiable user) throws DataAccessException {
+		assert user != null;
+		
+		User userOld = (User) find(user.getId());
+		if(user != null) {
+			this.usersData.set(this.indexSort(usersData, user.getId()), user);
+			this.idEquivalence.replace(userOld.getNif().getText(), user.getId());
+			this.idEquivalence.replace(userOld.getMail().getText(), user.getId());
+		}
+		return userOld;
+		
 	}
+
 
 	@Override
 	public String toStringData() {
