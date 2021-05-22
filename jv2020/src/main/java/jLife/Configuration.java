@@ -31,7 +31,7 @@ public class Configuration {
 				is.close();
 				return;
 			}
-			loadDefaultConfiguration();   					// La primera ejecución genera fichero.
+			loadDefaultConfiguration();   			// La primera ejecución genera fichero.
 			saveConfiguration();
 		} 
 		catch(IOException e) {
@@ -64,7 +64,7 @@ public class Configuration {
 
 		configuration.put("data.directoryName", "data");
 		configuration.put("data.fileUsersName", "users.dat");
-		configuration.put("data.fileEquivalencesIdName", "equivalId.dat");
+		configuration.put("data.FileIdEquivalencesName", "idEquivalences.dat");
 		configuration.put("data.fileSessionsName", "sessions.dat");
 		configuration.put("data.fileSimulationsName", "simulations.dat");
 		configuration.put("data.fileWorldsdName", "worlds.dat");

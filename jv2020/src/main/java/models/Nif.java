@@ -1,9 +1,11 @@
 package models;
 
+import java.io.Serializable;
+
 import jLife.Configuration;
 import utils.Regex;
 
-public class Nif {
+public class Nif implements Serializable {
 
 	private String text;
 

@@ -1,7 +1,9 @@
 package models;
+import java.io.Serializable;
+
 import utils.EasyDate;
 
-public class Session implements Identifiable {
+public class Session implements Identifiable, Serializable {
 	
 	public enum StateSession {ACTIVE, CLOSED};
 	
