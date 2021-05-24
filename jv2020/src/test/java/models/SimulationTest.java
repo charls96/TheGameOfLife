@@ -59,12 +59,18 @@ public class SimulationTest {
 
 	@Test
 	public void testSetWorld() {
-		// TODO Auto-generated method stub	
+		this.simulationTest2.setWorld(worldTest);
+		assertSame(simulationTest2.getWorld(), worldTest);
+
+
 	}
 
 	@Test
 	public void testSetDate() {
-		// TODO Auto-generated method stub	
+		this.simulationTest2.setDate(dateTest);
+		assertSame(simulationTest2.getDate(), dateTest);
+
+
 	}
 
 	@Test
