@@ -141,7 +141,7 @@ public class WorldsDAO extends IndexSortTemplate implements OperationsDAO, Persi
 	@Override
 	public String toStringIds() {
 		// TODO Auto-generated method stub
-		return result.toString();
+		return null;
 	}
 	
 	@Override
