@@ -94,8 +94,12 @@ public class SimulationsDAO extends IndexSortTemplate implements OperationsDAO {
 	
 	@Override
 	public String toStringIds() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		StringBuilder output = new StringBuilder();
+		for (Identifiable simulation : simulationsData ) {
+			output.append("\n" + simulation.getId());
+		}
+		return output.toString();
 	}
 
 	@Override
