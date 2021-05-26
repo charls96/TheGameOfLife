@@ -1,9 +1,11 @@
 package models;
 
+import java.io.Serializable;
+
 import utils.Cryptography;
 import utils.Regex;
 
-public class Password {
+public class Password implements Serializable {
 
 	private String text;
 

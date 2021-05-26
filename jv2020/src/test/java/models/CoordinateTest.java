@@ -1,6 +1,8 @@
+
 package models;
 
-public class NifTest {
+public class CoordinateTest {
 
 	// TODO Auto-generated
+	
 } 

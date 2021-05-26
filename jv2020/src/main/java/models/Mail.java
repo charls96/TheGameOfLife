@@ -1,8 +1,10 @@
 package models;
 
+import java.io.Serializable;
+
 import utils.Regex;
 
-public class Mail {
+public class Mail implements Serializable {
 	
 	private String text;
 	

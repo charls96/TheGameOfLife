@@ -1,10 +1,11 @@
 package utils;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.LocalDateTime;
 
-public class EasyDate {
+public class EasyDate implements Serializable {
 
 	private final LocalDateTime localDateTime;
 

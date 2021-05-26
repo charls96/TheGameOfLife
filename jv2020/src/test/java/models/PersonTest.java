@@ -1,6 +1,6 @@
 package models;
 
-public class NifTest {
+public class PersonTest {
 
 	// TODO Auto-generated
 } 

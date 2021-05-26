@@ -1,16 +1,16 @@
 package jLife;
 
-import dataAccess.Data;
+import dataAccess.DataFacade;
 import userAccess.UserAccess;
 
 public class JLife {
 
 	private UserAccess userAccess;
-	private Data data;
+	private DataFacade data;
 	
 	public JLife() {
 		this.userAccess = new UserAccess();
-		this.data = new Data();
+		this.data = new DataFacade();
 	}
 
 	public static void main(String[] args) {				

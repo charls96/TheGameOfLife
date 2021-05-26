@@ -1,8 +1,10 @@
 package models;
 
+import java.io.Serializable;
+
 import utils.EasyDate;
 
-public class Simulation implements Identifiable {
+public class Simulation implements Identifiable, Serializable {
 	
 	public final int MIN_SIMULATION_CICLES = 20;
 	public enum SimulationState {PREPARED, RUNNING, FINISHED};
@@ -73,8 +75,9 @@ public class Simulation implements Identifiable {
 		assert date != null;	
 		if (isValidDate(date)) {
 			this.date = date;
+			return;
 		}
-		throw new ModelsException("Date: null");
+		throw new ModelsException("Date: incorrecta.");
 	}
 	
 	private boolean isValidDate(EasyDate date) {	
@@ -89,6 +92,7 @@ public class Simulation implements Identifiable {
 	public void setSimulationCicles(int simulationCicles) {
 		if (simulationCicles > 0) {
 			this.simulationCicles = simulationCicles;
+			return;
 		}
 		throw new ModelsException("Simulation: Ciclos fuera de rango...");
 	}

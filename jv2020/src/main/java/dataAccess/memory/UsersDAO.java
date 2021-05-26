@@ -50,7 +50,7 @@ public class UsersDAO extends IndexSortTemplate implements OperationsDAO {
 					RoleUser.REGISTERED
 					));
 
-			this.create(new User(new User(new Nif(Configuration.get().getProperty("nif.default")),
+			this.create(new User(new Nif(Configuration.get().getProperty("nif.default")),
 					Configuration.get().getProperty("user.guest"),
 					Configuration.get().getProperty("user.guest") + " " + Configuration.get().getProperty("user.guest"),
 					new Address("La Iglesia", "0", "30012", "PatiÃ±o"),
@@ -59,7 +59,7 @@ public class UsersDAO extends IndexSortTemplate implements OperationsDAO {
 					new EasyDate(2021, 1, 14),
 					new Password(Configuration.get().getProperty("password.default")), 
 					RoleUser.REGISTERED
-					)));
+					));
 		} 
 		catch (ModelsException e) {
 			e.printStackTrace();
@@ -72,17 +72,18 @@ public class UsersDAO extends IndexSortTemplate implements OperationsDAO {
 	@Override
 	public Identifiable find(String id) {
 		id = this.idEquivalence.get(id);
-		int pos = this.indexSort(this.usersData, id);
-		if (pos >= 0) {
-			return (User) this.usersData.get(pos);
+		if (id != null) {
+			int index = this.indexSort(this.usersData, id);
+			if (index > 0) {
+				return (User) this.usersData.get(index - 1);
+			}
 		}
 		return null;
 	}
 
 	@Override
 	public List<Identifiable> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return usersData;
 	}
 
 	@Override
@@ -100,37 +101,63 @@ public class UsersDAO extends IndexSortTemplate implements OperationsDAO {
 
 	@Override
 	public Identifiable delete(String id) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		assert id != null;
+		
+		User user = (User) find(id);
+		if(user != null) {
+			this.usersData.remove(this.indexSort(usersData, user.getId()));
+			this.idEquivalence.remove(user.getNif().getText());
+			this.idEquivalence.remove(user.getMail().getText());
+			return user;
+		}
+		throw new DataAccessException("El usuario"  + id + "introducido no existe");
 	}
 
 	@Override
-	public Identifiable delete(Identifiable obj) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+	public Identifiable delete(Identifiable user) throws DataAccessException {
+		
+		//le pasamos user al método creado anteriormente para eliminar el usuario mediante id
+		return delete(user.getId());
 	}
 
 	@Override
-	public Identifiable update(Identifiable obj) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+	public Identifiable update(Identifiable user) throws DataAccessException {
+		assert user != null;
+		
+		User userOld = (User) find(user.getId());
+		if(user != null) {
+			this.usersData.set(this.indexSort(usersData, user.getId()), user);
+			this.idEquivalence.replace(userOld.getNif().getText(), user.getId());
+			this.idEquivalence.replace(userOld.getMail().getText(), user.getId());
+		}
+		return userOld;
+		
 	}
+
 
 	@Override
 	public String toStringData() {
-		// TODO Auto-generated method stub
-		return null;
+		StringBuilder dataString = new StringBuilder();
+		for (Identifiable user: usersData) {
+			dataString.append("\n" + user); 
+		}
+		return dataString.toString();
 	}
 
 	@Override
 	public String toStringIds() {
-		// TODO Auto-generated method stub
-		return null;
+		StringBuilder idString = new StringBuilder();
+		for (Identifiable user: usersData) {
+			idString.append("\n" + user.getId()); 
+		}
+		return idString.toString();
 	}
 
 	@Override
 	public void deleteAll() {
-		// TODO Auto-generated method stub
+		usersData.clear();
+		idEquivalence.clear();
+		loadIntegratedUsers();
 
 	}
 

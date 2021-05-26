@@ -5,6 +5,7 @@ import java.util.List;
 
 import dataAccess.DataAccessException;
 import dataAccess.OperationsDAO;
+import dataAccess.memory.IndexSortTemplate;
 import models.Identifiable;
 import models.User;
 
@@ -24,7 +25,7 @@ public class SimulationsDAO extends IndexSortTemplate implements OperationsDAO {
 		}
 		return instance;
 	}
-	
+
 	@Override
 	public Identifiable find(String id) {
 		int pos = this.indexSort(this.simulationsData, id);
@@ -36,8 +37,8 @@ public class SimulationsDAO extends IndexSortTemplate implements OperationsDAO {
 
 	@Override
 	public List<Identifiable> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return simulationsData;
 	}
 
 	public List<Identifiable> findAllUser(String userId) {
@@ -70,16 +71,27 @@ public class SimulationsDAO extends IndexSortTemplate implements OperationsDAO {
 
 	@Override
 	public Identifiable update(Identifiable obj) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		assert obj != null;
+		Identifiable updatedSimulation = (Identifiable) obj;							
+		int index = indexSort(simulationsData, updatedSimulation.getId());
+		
+		if (index > 0) {
+			Identifiable aux = (Identifiable) simulationsData.get(index-1);
+			simulationsData.set(index-1, updatedSimulation);
+			return aux;
+		}
+		throw new DataAccessException("SimulationsDAO.update: la simulacion no existe");
 	}
 
 	@Override
 	public String toStringData() {
-		// TODO Auto-generated method stub
-		return null;
+		StringBuilder output = new StringBuilder();
+		for (Identifiable simulation : simulationsData ) {
+			output.append("\n" + simulation);
+		}
+		return output.toString();
 	}
-
+	
 	@Override
 	public String toStringIds() {
 		// TODO Auto-generated method stub
