@@ -2,10 +2,7 @@ package dataAccess;
 
 import java.util.List;
 
-import dataAccess.memory.SessionsDAO;
-import dataAccess.memory.SimulationsDAO;
-import dataAccess.memory.UsersDAO;
-import dataAccess.memory.WorldsDAO;
+import dataAccess.db4o.*;
 import models.Identifiable;
 import models.Session;
 import models.Simulation;
