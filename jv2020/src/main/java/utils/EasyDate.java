@@ -87,8 +87,9 @@ public class EasyDate implements Serializable {
 	}
 	
 	public String toStringTimeStamp() {
-		return "" + this.getYear() + this.getMonth() + this.getDay() 
-					+ this.getHour() + this.getMinute()+ this.getSecond();		
+		return String.format("%4d%02d%02d%02d%02d%02d", 
+				this.getYear(), this.getMonth(), this.getDay(), 
+				this.getHour(), this.getMinute(), this.getSecond());	
 	}
 
 	@Override
