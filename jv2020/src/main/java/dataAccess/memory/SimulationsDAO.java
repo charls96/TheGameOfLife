@@ -58,9 +58,15 @@ public class SimulationsDAO extends IndexSortTemplate implements OperationsDAO {
 	}
 
 	@Override
-	public Identifiable delete(String id) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+	public Identifiable delete(String id) throws DataAccessException  {
+		assert id != null;
+		int position = indexSort(simulationsData, id);
+		if (position > 0) {
+			return (Identifiable) simulationsData.remove(position - 1);
+		}
+		else {
+			throw new DataAccessException("SimulationsDAO.delete:" + id + "no existe");
+		}
 	}
 
 	@Override
