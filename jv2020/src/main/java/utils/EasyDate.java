@@ -102,7 +102,7 @@ public class EasyDate implements Serializable {
 		//Formato ISO 8601
 		return String.format("%4d-%02d-%02dT%02d:%02d:%02d", 
 				this.getYear(), this.getMonth(), this.getDay(), 
-				this.getDay(), this.getMinute(), this.getSecond());
+				this.getHour(), this.getMinute(), this.getSecond());
 	}
 	
 	@Override
