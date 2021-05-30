@@ -176,8 +176,20 @@ public class UsersDAO extends IndexSortTemplate implements OperationsDAO, Persis
 
 	@Override
 	public Identifiable delete(String id) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;	
+		assert (id != null);
+		
+		int position = indexSort(usersData, id);
+		
+		if(position > 0) {
+			User deltedUser = (User) usersData.remove(position-1);
+			idEquivalences.remove(deltedUser.getId());
+			idEquivalences.remove(deltedUser.getNif().getText());
+			idEquivalences.remove(deltedUser.getMail().getText());
+			return deltedUser;
+		}
+		else {
+			throw new DataAccessException("UsersDAO.delete: el usuario " + id + " no existe...");
+		}	
 	}
 
 	@Override
