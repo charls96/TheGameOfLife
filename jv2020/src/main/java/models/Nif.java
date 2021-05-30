@@ -27,6 +27,7 @@ public class Nif implements Serializable {
 
 	public void setText(String text) {
 		assert text != null;
+		text = text.toUpperCase();
 		if (isValidNif(text)) {
 			this.text = text;
 			return;

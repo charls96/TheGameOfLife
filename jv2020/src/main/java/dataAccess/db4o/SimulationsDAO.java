@@ -132,4 +132,8 @@ public class SimulationsDAO implements OperationsDAO {
 		}	
 	}
 
+	public void close() {
+		this.db.close();	
+	}
+
 } 

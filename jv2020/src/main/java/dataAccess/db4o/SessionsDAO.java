@@ -132,4 +132,8 @@ public class SessionsDAO implements OperationsDAO {
 		}	
 	}
 
+	public void close() {
+		this.db.close();	
+	}
+
 } 

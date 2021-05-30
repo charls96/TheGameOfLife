@@ -23,6 +23,13 @@ public class DataFacade {
 		this.worldsDAO = WorldsDAO.getInstance();
 	}
 
+	public void close( ) {
+		this.usersDAO.close();
+		this.sessionsDAO.close();
+		this.simulationsDAO.close();
+		this.worldsDAO.close();	
+	}
+	
 	// FACADE usersDAO
 
 	public User findUser(String id) {

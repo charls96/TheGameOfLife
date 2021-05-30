@@ -17,7 +17,7 @@ import models.World;
 public class WorldsDAO implements OperationsDAO {
 
 	private ObjectContainer db;
-	
+
 	//Singleton
 	private static WorldsDAO instance;
 
@@ -46,23 +46,23 @@ public class WorldsDAO implements OperationsDAO {
 	}
 
 	//OPERACIONES DAO
-	
+
 	public Identifiable find(Identifiable world) {
 		return this.find(world.getId());
 	}
-	
+
 	@Override
 	public Identifiable find(String id) {
 		ObjectSet<World> result = db.query(new Predicate<World>() {
-		    public boolean match(World world) {
-		        return true;
-		    }
+			public boolean match(World world) {
+				return true;
+			}
 		});
 		while (result.hasNext()) {
 			World world = (World) result.next();
-		    if (world.getId().equals(id)) {
-		    	return world;
-		    }
+			if (world.getId().equals(id)) {
+				return world;
+			}
 		}
 		return null;
 	}
@@ -95,7 +95,7 @@ public class WorldsDAO implements OperationsDAO {
 	public Identifiable delete(Identifiable world) throws DataAccessException {
 		return this.delete(world.getId());
 	}
-	
+
 	@Override
 	public Identifiable delete(String id) throws DataAccessException {
 		World deletedWorld = (World) this.find(id);
@@ -153,5 +153,9 @@ public class WorldsDAO implements OperationsDAO {
 		}
 		this.createDemoWorld();
 	}
-	
+
+	public void close() {
+		this.db.close();	
+	}
+
 }

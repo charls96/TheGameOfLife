@@ -26,6 +26,7 @@ public class Mail implements Serializable {
 
 	public void setText(String text) {
 		assert text != null;
+		text = text.toUpperCase();
 		if (isValidMail(text)) {
 			this.text = text;
 		}

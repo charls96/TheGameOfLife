@@ -76,16 +76,19 @@ public class UsersDAO  implements OperationsDAO {
 
 	@Override
 	public User find(String id) {	
-		ObjectSet<User> result = db.query(new Predicate<User>() {
-		    public boolean match(User user) {
-		        return true;
-		    }
-		});
-		while (result.hasNext()) {
-			User user = (User) result.next();
-		    if (user.getId().equals(id)) {
-		    	return user;
-		    }
+		id = this.getEquivalencesMap().get(id);
+		if (id != null) {
+			ObjectSet<User> result = this.db.query(new Predicate<User>() {
+				public boolean match(User user) {
+					return true;
+				}
+			});
+			while (result.hasNext()) {
+				User user = (User) result.next();
+				if (user.getId().equals(id)) {
+					return user;
+				}
+			}
 		}
 		return null;		
 	}
@@ -207,6 +210,10 @@ public class UsersDAO  implements OperationsDAO {
 		equivalencesMap.clear();
 		this.db.store(equivalencesMap);
 		this.createIntegratedUsers();
+	}
+
+	public void close() {
+		this.db.close();	
 	}
 
 } 
