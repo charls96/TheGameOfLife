@@ -226,7 +226,8 @@ public class UsersDAO extends IndexSortTemplate implements OperationsDAO, Persis
 
 	@Override
 	public void deleteAll() {
-		// TODO Auto-generated method stub
-	}
-
+		usersData.clear();
+		idEquivalences.clear();
+		loadIntegratedUsers();	
+		}
 }
