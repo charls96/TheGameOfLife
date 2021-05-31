@@ -7,18 +7,19 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import entitys.ModelsException;
 import entitys.Password;
 
 class PasswordTest {
 
 	private static Password passwordTest1;
 	private Password passwordTest2;
-	
-	/** 
+
+	/**
 	 * Método que se ejecuta una sola vez al principio del conjunto de pruebas
 	 */
 	@BeforeAll
-	static void iniciarlizeGlobalData() {	
+	static void iniciarlizeGlobalData() {
 		passwordTest1 = new Password("ClaveTest");
 	}
 
@@ -29,42 +30,44 @@ class PasswordTest {
 	void clearTestData() {
 		this.passwordTest2 = new Password();
 	}
-	
+
 	// TEST CON DATOS VÁLIDOS
+	@Test
+	void testSetText() {
+		try {
+			passwordTest2.setText("ClaveTest");
+		} catch (ModelsException e) {
+			fail("No debe llegar aquí...");
+		}
+		assertEquals(passwordTest2.getText(), "Goe1iYixy");
+	}
 
 	@Test
-	void testSetText() {	
-		// TODO Auto-generated method stub	
-	}
-	
-	@Test
-	void testEqualsObject() {	
-		Password claveTest = new Password(this.passwordTest1);	
+	void testEqualsObject() {
+		Password claveTest = new Password(this.passwordTest1);
 		assertEquals(this.passwordTest1.getText(), claveTest.getText());
 	}
 
 	@Test
 	void testClone() {
-		// TODO Auto-generated method stub
+		assertNotSame(passwordTest1, new Password(passwordTest1));
 	}
-	
+
 	// TEST CON DATOS NO VÁLIDOS
-	//*************************
-	
+	// *************************
+
 	@Test
-	void testSetPasswordNull() {	
-		try {	
-			this.passwordTest2.setText(null);		
+	void testSetPasswordNull() {
+		try {
+			this.passwordTest2.setText(null);
 			fail("No debe llegar aquí...");
-		} 
-		catch (AssertionError e) {
-		}	
+		} catch (AssertionError e) {
+		}
 	}
-	
+
 	@Test
 	public void testSetPasswordNotValid() {
 		// TODO Auto-generated method stub
 	}
-
 
 }
