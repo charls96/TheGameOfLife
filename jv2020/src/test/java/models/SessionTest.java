@@ -11,6 +11,12 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import entitys.Address;
+import entitys.Mail;
+import entitys.Nif;
+import entitys.Password;
+import entitys.Session;
+import entitys.User;
 import utils.EasyDate;
 
 class SessionTest {

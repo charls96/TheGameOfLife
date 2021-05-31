@@ -1,8 +1,10 @@
-package models;
+package entitys;
+
+import java.io.Serializable;
 
 import utils.EasyDate;
 
-public class Simulation implements Identifiable {
+public class Simulation implements Identifiable, Serializable {
 	
 	public final int MIN_SIMULATION_CICLES = 20;
 	public enum SimulationState {PREPARED, RUNNING, FINISHED};

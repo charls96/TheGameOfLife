@@ -1,8 +1,10 @@
-package models;
+package entitys;
+
+import java.io.Serializable;
 
 import utils.Regex;
 
-public class Address {
+public class Address implements Serializable {
 	private String street;
 	private String number;
 	private String postalCode;
@@ -73,7 +75,7 @@ public class Address {
 
 
 	private boolean isValidPostalCode(String postalCode) {
-		return postalCode != null && postalCode.matches(Regex.POSTAL_CODE);
+		return postalCode.matches(Regex.POSTAL_CODE);
 	}
 
 	public String getLocation() {

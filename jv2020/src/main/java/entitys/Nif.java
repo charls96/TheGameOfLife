@@ -1,9 +1,11 @@
-package models;
+package entitys;
+
+import java.io.Serializable;
 
 import jLife.Configuration;
 import utils.Regex;
 
-public class Nif {
+public class Nif implements Serializable {
 
 	private String text;
 
@@ -25,6 +27,7 @@ public class Nif {
 
 	public void setText(String text) {
 		assert text != null;
+		text = text.toUpperCase();
 		if (isValidNif(text)) {
 			this.text = text;
 			return;

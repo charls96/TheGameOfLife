@@ -9,6 +9,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import entitys.Mail;
+import entitys.ModelsException;
+
 public class MailTest {
 
 	private static Mail mailTest1;

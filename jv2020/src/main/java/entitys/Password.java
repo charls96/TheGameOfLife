@@ -1,37 +1,47 @@
-package models;
+package entitys;
 
+import java.io.Serializable;
+
+import utils.Cryptography;
 import utils.Regex;
 
-public class Mail {
-	
+public class Password implements Serializable {
+
 	private String text;
-	
-	public Mail(String text) {
-		setText(text);
+
+	public Password(String text) {
+		this.setText(text);
 	}
 
-	public Mail() {
-		this("mail@mail.com");
+	public Password() {
+		this.setText("Miau#00");
 	}
 
-	public Mail(Mail mail) {
-		this.text = new String(mail.text);
+	public Password(Password password) {
+		this.text = new String(password.text);
 	}
-	
+
 	public String getText() {
-		return this.text;
+		return text;
 	}
 
 	public void setText(String text) {
 		assert text != null;
-		if (isValidMail(text)) {
-			this.text = text;
+		if (isValidPassword(text)) {
+			this.text = Cryptography.cesar(text);
+		}
+		else {
+			if (this.text == null) {							
+				this.text = new Password().getText();
+			}
+			throw new ModelsException("Formato no válido.");
 		}
 	}
 
-	private boolean isValidMail(String text) {
-		return text.matches(Regex.MAIL);
+	private boolean isValidPassword(String text) {
+		return text.matches(Regex.PASSWORD);        
 	}
+
 
 	@Override
 	public String toString() {
@@ -54,7 +64,7 @@ public class Mail {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Mail other = (Mail) obj;
+		Password other = (Password) obj;
 		if (text == null) {
 			if (other.text != null)
 				return false;
@@ -64,8 +74,9 @@ public class Mail {
 	}
 
 	@Override
-	public Mail clone() {
-		return new Mail(this);
+	public Password clone() {
+		return  new Password(this);
 	}
-	
+
+
 }

@@ -2,15 +2,12 @@ package dataAccess;
 
 import java.util.List;
 
-import dataAccess.memory.SessionsDAO;
-import dataAccess.memory.SimulationsDAO;
-import dataAccess.memory.UsersDAO;
-import dataAccess.memory.WorldsDAO;
-import models.Identifiable;
-import models.Session;
-import models.Simulation;
-import models.User;
-import models.World;
+import dataAccess.db4o.*;
+import entitys.Identifiable;
+import entitys.Session;
+import entitys.Simulation;
+import entitys.User;
+import entitys.World;
 
 public class DataFacade {
 
@@ -26,6 +23,13 @@ public class DataFacade {
 		this.worldsDAO = WorldsDAO.getInstance();
 	}
 
+	public void close( ) {
+		this.usersDAO.close();
+		this.sessionsDAO.close();
+		this.simulationsDAO.close();
+		this.worldsDAO.close();	
+	}
+	
 	// FACADE usersDAO
 
 	public User findUser(String id) {

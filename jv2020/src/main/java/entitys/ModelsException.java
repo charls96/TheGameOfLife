@@ -1,4 +1,4 @@
-package models;
+package entitys;
 
 public class ModelsException extends RuntimeException {
 

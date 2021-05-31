@@ -3,15 +3,15 @@ package dataAccess;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import models.Address;
-import models.Identifiable;
-import models.Mail;
-import models.Nif;
-import models.Password;
-import models.Session;
-import models.Simulation;
-import models.User;
-import models.User.RoleUser;
+import entitys.Address;
+import entitys.Identifiable;
+import entitys.Mail;
+import entitys.Nif;
+import entitys.Password;
+import entitys.Session;
+import entitys.Simulation;
+import entitys.User;
+import entitys.User.RoleUser;
 import utils.EasyDate;
 
 public class Data {

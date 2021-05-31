@@ -1,8 +1,10 @@
-package models;
+package entitys;
+
+import java.io.Serializable;
 
 import utils.EasyDate;
 
-public class Person {
+public class Person implements Serializable {
 	protected Nif nif;
 	protected String name;
 	protected String surnames;

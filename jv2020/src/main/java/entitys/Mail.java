@@ -1,45 +1,40 @@
-package models;
+package entitys;
 
-import utils.Cryptography;
+import java.io.Serializable;
+
 import utils.Regex;
 
-public class Password {
-
+public class Mail implements Serializable {
+	
 	private String text;
-
-	public Password(String text) {
-		this.setText(text);
+	
+	public Mail(String text) {
+		setText(text);
 	}
 
-	public Password() {
-		this.setText("Miau#00");
+	public Mail() {
+		this("mail@mail.com");
 	}
 
-	public Password(Password password) {
-		this.text = new String(password.text);
+	public Mail(Mail mail) {
+		this.text = new String(mail.text);
 	}
-
+	
 	public String getText() {
-		return text;
+		return this.text;
 	}
 
 	public void setText(String text) {
 		assert text != null;
-		if (isValidPassword(text)) {
-			this.text = Cryptography.cesar(text);
-		}
-		else {
-			if (this.text == null) {							
-				this.text = new Password().getText();
-			}
-			throw new ModelsException("Formato no válido.");
+		text = text.toUpperCase();
+		if (isValidMail(text)) {
+			this.text = text;
 		}
 	}
 
-	private boolean isValidPassword(String text) {
-		return text.matches(Regex.PASSWORD);        
+	private boolean isValidMail(String text) {
+		return text.matches(Regex.MAIL);
 	}
-
 
 	@Override
 	public String toString() {
@@ -62,7 +57,7 @@ public class Password {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Password other = (Password) obj;
+		Mail other = (Mail) obj;
 		if (text == null) {
 			if (other.text != null)
 				return false;
@@ -72,9 +67,8 @@ public class Password {
 	}
 
 	@Override
-	public Password clone() {
-		return  new Password(this);
+	public Mail clone() {
+		return new Mail(this);
 	}
-
-
+	
 }

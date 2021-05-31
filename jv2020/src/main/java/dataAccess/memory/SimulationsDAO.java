@@ -6,8 +6,8 @@ import java.util.List;
 import dataAccess.DataAccessException;
 import dataAccess.OperationsDAO;
 import dataAccess.memory.IndexSortTemplate;
-import models.Identifiable;
-import models.User;
+import entitys.Identifiable;
+import entitys.User;
 
 public class SimulationsDAO extends IndexSortTemplate implements OperationsDAO {
 
@@ -58,9 +58,15 @@ public class SimulationsDAO extends IndexSortTemplate implements OperationsDAO {
 	}
 
 	@Override
-	public Identifiable delete(String id) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+	public Identifiable delete(String id) throws DataAccessException  {
+		assert id != null;
+		int position = indexSort(simulationsData, id);
+		if (position > 0) {
+			return (Identifiable) simulationsData.remove(position - 1);
+		}
+		else {
+			throw new DataAccessException("SimulationsDAO.delete:" + id + "no existe");
+		}
 	}
 
 	@Override
@@ -71,20 +77,35 @@ public class SimulationsDAO extends IndexSortTemplate implements OperationsDAO {
 
 	@Override
 	public Identifiable update(Identifiable obj) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		assert obj != null;
+		Identifiable updatedSimulation = (Identifiable) obj;							
+		int index = indexSort(simulationsData, updatedSimulation.getId());
+		
+		if (index > 0) {
+			Identifiable aux = (Identifiable) simulationsData.get(index-1);
+			simulationsData.set(index-1, updatedSimulation);
+			return aux;
+		}
+		throw new DataAccessException("SimulationsDAO.update: la simulacion no existe");
 	}
 
 	@Override
 	public String toStringData() {
-		// TODO Auto-generated method stub
-		return null;
+		StringBuilder output = new StringBuilder();
+		for (Identifiable simulation : simulationsData ) {
+			output.append("\n" + simulation);
+		}
+		return output.toString();
 	}
-
+	
 	@Override
 	public String toStringIds() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		StringBuilder output = new StringBuilder();
+		for (Identifiable simulation : simulationsData ) {
+			output.append("\n" + simulation.getId());
+		}
+		return output.toString();
 	}
 
 	@Override

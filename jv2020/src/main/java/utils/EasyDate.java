@@ -1,10 +1,11 @@
 package utils;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.LocalDateTime;
 
-public class EasyDate {
+public class EasyDate implements Serializable {
 
 	private final LocalDateTime localDateTime;
 
@@ -86,8 +87,9 @@ public class EasyDate {
 	}
 	
 	public String toStringTimeStamp() {
-		return "" + this.getYear() + this.getMonth() + this.getDay() 
-					+ this.getHour() + this.getMinute()+ this.getSecond();		
+		return String.format("%4d%02d%02d%02d%02d%02d", 
+				this.getYear(), this.getMonth(), this.getDay(), 
+				this.getHour(), this.getMinute(), this.getSecond());	
 	}
 
 	@Override
@@ -100,7 +102,7 @@ public class EasyDate {
 		//Formato ISO 8601
 		return String.format("%4d-%02d-%02dT%02d:%02d:%02d", 
 				this.getYear(), this.getMonth(), this.getDay(), 
-				this.getDay(), this.getMinute(), this.getSecond());
+				this.getHour(), this.getMinute(), this.getSecond());
 	}
 	
 	@Override
