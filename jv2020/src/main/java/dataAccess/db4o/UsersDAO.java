@@ -10,16 +10,16 @@ import com.db4o.query.Query;
 
 import dataAccess.DataAccessException;
 import dataAccess.OperationsDAO;
+import entitys.Address;
+import entitys.Identifiable;
+import entitys.Mail;
+import entitys.ModelsException;
+import entitys.Nif;
+import entitys.Password;
+import entitys.Session;
+import entitys.User;
+import entitys.User.RoleUser;
 import jLife.Configuration;
-import models.Address;
-import models.Identifiable;
-import models.Mail;
-import models.ModelsException;
-import models.Nif;
-import models.Password;
-import models.Session;
-import models.User;
-import models.User.RoleUser;
 import utils.EasyDate;
 
 public class UsersDAO  implements OperationsDAO {

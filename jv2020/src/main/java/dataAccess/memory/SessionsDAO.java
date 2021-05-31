@@ -5,8 +5,8 @@ import java.util.List;
 
 import dataAccess.DataAccessException;
 import dataAccess.OperationsDAO;
-import models.Identifiable;
-import models.User;
+import entitys.Identifiable;
+import entitys.User;
 
 public class SessionsDAO extends IndexSortTemplate implements OperationsDAO {
 

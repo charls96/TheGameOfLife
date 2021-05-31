@@ -6,15 +6,15 @@ import java.util.List;
 
 import dataAccess.DataAccessException;
 import dataAccess.OperationsDAO;
+import entitys.Address;
+import entitys.Identifiable;
+import entitys.Mail;
+import entitys.ModelsException;
+import entitys.Nif;
+import entitys.Password;
+import entitys.User;
+import entitys.User.RoleUser;
 import jLife.Configuration;
-import models.Address;
-import models.Identifiable;
-import models.Mail;
-import models.ModelsException;
-import models.Nif;
-import models.Password;
-import models.User;
-import models.User.RoleUser;
 import utils.EasyDate;
 
 public class UsersDAO extends IndexSortTemplate implements OperationsDAO {
@@ -116,7 +116,7 @@ public class UsersDAO extends IndexSortTemplate implements OperationsDAO {
 	@Override
 	public Identifiable delete(Identifiable user) throws DataAccessException {
 		
-		//le pasamos user al método creado anteriormente para eliminar el usuario mediante id
+		//le pasamos user al mï¿½todo creado anteriormente para eliminar el usuario mediante id
 		return delete(user.getId());
 	}
 

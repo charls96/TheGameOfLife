@@ -1,24 +1,24 @@
-package models;
+package entitys;
 
 import java.io.Serializable;
 
-import utils.Cryptography;
+import jLife.Configuration;
 import utils.Regex;
 
-public class Password implements Serializable {
+public class Nif implements Serializable {
 
 	private String text;
 
-	public Password(String text) {
+	public Nif(String text) {
 		this.setText(text);
 	}
 
-	public Password() {
-		this.setText("Miau#00");
+	public Nif() {
+		this.setText(Configuration.get().getProperty("nif.default"));
 	}
 
-	public Password(Password password) {
-		this.text = new String(password.text);
+	public Nif(Nif nif) {
+		this.text = new String(nif.text);
 	}
 
 	public String getText() {
@@ -27,21 +27,22 @@ public class Password implements Serializable {
 
 	public void setText(String text) {
 		assert text != null;
-		if (isValidPassword(text)) {
-			this.text = Cryptography.cesar(text);
+		text = text.toUpperCase();
+		if (isValidNif(text)) {
+			this.text = text;
+			return;
 		}
-		else {
-			if (this.text == null) {							
-				this.text = new Password().getText();
-			}
-			throw new ModelsException("Formato no válido.");
-		}
+		throw new ModelsException("Nif: formato no válido");
 	}
 
-	private boolean isValidPassword(String text) {
-		return text.matches(Regex.PASSWORD);        
+	private boolean isValidNif(String text) {
+		return text.matches(Regex.NIF) && isValidLetter(text);   
 	}
 
+	private boolean isValidLetter(String text) {	
+		int value = Integer.parseInt(text.substring(0, 8));	
+		return "TRWAGMYFPDXBNJZSQVHLCKE".charAt(value % 23) == text.charAt(8);
+	}
 
 	@Override
 	public String toString() {
@@ -64,7 +65,7 @@ public class Password implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Password other = (Password) obj;
+		Nif other = (Nif) obj;
 		if (text == null) {
 			if (other.text != null)
 				return false;
@@ -74,9 +75,11 @@ public class Password implements Serializable {
 	}
 
 	@Override
-	public Password clone() {
-		return  new Password(this);
+	public Nif clone() {
+		return  new Nif(this);
 	}
+
+
 
 
 }

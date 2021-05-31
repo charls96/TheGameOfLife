@@ -5,8 +5,8 @@ import java.util.List;
 
 import dataAccess.DataAccessException;
 import dataAccess.OperationsDAO;
-import models.Identifiable;
-import models.World;
+import entitys.Identifiable;
+import entitys.World;
 
 public class WorldsDAO extends IndexSortTemplate implements OperationsDAO {
 

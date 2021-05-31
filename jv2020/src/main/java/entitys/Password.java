@@ -1,24 +1,24 @@
-package models;
+package entitys;
 
 import java.io.Serializable;
 
-import jLife.Configuration;
+import utils.Cryptography;
 import utils.Regex;
 
-public class Nif implements Serializable {
+public class Password implements Serializable {
 
 	private String text;
 
-	public Nif(String text) {
+	public Password(String text) {
 		this.setText(text);
 	}
 
-	public Nif() {
-		this.setText(Configuration.get().getProperty("nif.default"));
+	public Password() {
+		this.setText("Miau#00");
 	}
 
-	public Nif(Nif nif) {
-		this.text = new String(nif.text);
+	public Password(Password password) {
+		this.text = new String(password.text);
 	}
 
 	public String getText() {
@@ -27,22 +27,21 @@ public class Nif implements Serializable {
 
 	public void setText(String text) {
 		assert text != null;
-		text = text.toUpperCase();
-		if (isValidNif(text)) {
-			this.text = text;
-			return;
+		if (isValidPassword(text)) {
+			this.text = Cryptography.cesar(text);
 		}
-		throw new ModelsException("Nif: formato no válido");
+		else {
+			if (this.text == null) {							
+				this.text = new Password().getText();
+			}
+			throw new ModelsException("Formato no válido.");
+		}
 	}
 
-	private boolean isValidNif(String text) {
-		return text.matches(Regex.NIF) && isValidLetter(text);   
+	private boolean isValidPassword(String text) {
+		return text.matches(Regex.PASSWORD);        
 	}
 
-	private boolean isValidLetter(String text) {	
-		int value = Integer.parseInt(text.substring(0, 8));	
-		return "TRWAGMYFPDXBNJZSQVHLCKE".charAt(value % 23) == text.charAt(8);
-	}
 
 	@Override
 	public String toString() {
@@ -65,7 +64,7 @@ public class Nif implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Nif other = (Nif) obj;
+		Password other = (Password) obj;
 		if (text == null) {
 			if (other.text != null)
 				return false;
@@ -75,11 +74,9 @@ public class Nif implements Serializable {
 	}
 
 	@Override
-	public Nif clone() {
-		return  new Nif(this);
+	public Password clone() {
+		return  new Password(this);
 	}
-
-
 
 
 }

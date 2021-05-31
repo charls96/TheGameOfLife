@@ -1,8 +1,8 @@
 package userAccess.console.controllers;
 
 import dataAccess.DataFacade;
-import models.Session;
-import models.Simulation;
+import entitys.Session;
+import entitys.Simulation;
 import userAccess.console.views.MainView;
 import utils.EasyDate;
 

@@ -1,6 +1,6 @@
 package userAccess.console.controllers;
 
-import models.Simulation;
+import entitys.Simulation;
 import userAccess.console.views.SimulationRunView;
 
 public class SimulationRunController {

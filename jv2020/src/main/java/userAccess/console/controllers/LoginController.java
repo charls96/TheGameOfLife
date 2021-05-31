@@ -1,9 +1,9 @@
 package userAccess.console.controllers;
 
 import dataAccess.DataFacade;
+import entitys.Session;
+import entitys.User;
 import jLife.Configuration;
-import models.Session;
-import models.User;
 import userAccess.console.views.LoginView;
 import utils.Cryptography;
 

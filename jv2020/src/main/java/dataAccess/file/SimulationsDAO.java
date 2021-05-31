@@ -12,9 +12,9 @@ import java.util.List;
 import dataAccess.DataAccessException;
 import dataAccess.OperationsDAO;
 import dataAccess.memory.IndexSortTemplate;
+import entitys.Identifiable;
+import entitys.Simulation;
 import jLife.Configuration;
-import models.Identifiable;
-import models.Simulation;
 import utils.EasyDate;
 
 public class SimulationsDAO extends IndexSortTemplate implements OperationsDAO, Persistent {

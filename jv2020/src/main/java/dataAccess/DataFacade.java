@@ -3,11 +3,11 @@ package dataAccess;
 import java.util.List;
 
 import dataAccess.db4o.*;
-import models.Identifiable;
-import models.Session;
-import models.Simulation;
-import models.User;
-import models.World;
+import entitys.Identifiable;
+import entitys.Session;
+import entitys.Simulation;
+import entitys.User;
+import entitys.World;
 
 public class DataFacade {
 

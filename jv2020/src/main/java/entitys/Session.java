@@ -1,4 +1,4 @@
-package models;
+package entitys;
 import java.io.Serializable;
 
 import utils.EasyDate;

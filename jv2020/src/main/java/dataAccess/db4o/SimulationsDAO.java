@@ -9,9 +9,9 @@ import com.db4o.query.Query;
 
 import dataAccess.DataAccessException;
 import dataAccess.OperationsDAO;
-import models.Identifiable;
-import models.Session;
-import models.Simulation;
+import entitys.Identifiable;
+import entitys.Session;
+import entitys.Simulation;
 
 public class SimulationsDAO implements OperationsDAO {
 
