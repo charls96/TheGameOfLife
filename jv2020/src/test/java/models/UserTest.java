@@ -1,5 +1,6 @@
 package models;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.AfterEach;
@@ -70,7 +71,8 @@ class UserTest {
 
 	@Test
 	void testSetRole() {
-		// TODO Auto-generated method stub	
+		userTest2.setRole(User.RoleUser.REGISTERED);
+		assertEquals(userTest1.getRole(), RoleUser.REGISTERED);	
 	}
 
 	@Test
