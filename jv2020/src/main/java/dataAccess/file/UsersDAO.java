@@ -211,8 +211,11 @@ public class UsersDAO extends IndexSortTemplate implements OperationsDAO, Persis
 
 	@Override
 	public String toStringData() {
-		// TODO Auto-generated method stub
-		return null;
+		StringBuilder textData = new StringBuilder();
+		for (Identifiable user: usersData) {
+			textData.append("\n" + user); 
+		}
+		return textData.toString();
 	}
 
 	@Override
