@@ -110,7 +110,7 @@ public class SimulationTest {
 	}
 
 	@Test
-	public void testSetFechaNull() {
+	public void testSetDateNull() {
 		// TODO Auto-generated method stub
 	}
 
