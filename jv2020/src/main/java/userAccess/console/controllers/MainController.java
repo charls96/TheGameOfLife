@@ -1,6 +1,9 @@
 package userAccess.console.controllers;
 
+import java.util.List;
+
 import dataAccess.DataFacade;
+import entitys.Identifiable;
 import entitys.Session;
 import entitys.Simulation;
 import userAccess.console.views.MainView;
@@ -120,7 +123,8 @@ public class MainController {
 	}
 
 	private void showIdSessions() {
-		this.mainView.showMessage("Opción no disponible...");	
+		List<Identifiable> sesiones = data.findAllSessionsUser(session.getUser().getId());
+		for (Identifiable i:sesiones) mainView.showMessage(i.getId());
 	}
 
 	private void showDataSessions() {
