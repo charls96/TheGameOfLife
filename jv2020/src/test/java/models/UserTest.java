@@ -1,6 +1,8 @@
 package models;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.AfterEach;
@@ -110,7 +112,13 @@ class UserTest {
 
 	@Test
 	void testSetPasswordNull() {	
-		// TODO Auto-generated method stub
+		try {
+			userTest2.setPassword(null);
+			fail("No debe llegar aquí....");
+		} 
+		catch (AssertionError e) { 
+			assertTrue(userTest2.getPassword() != null);
+		}
 	}
 
 	@Test
