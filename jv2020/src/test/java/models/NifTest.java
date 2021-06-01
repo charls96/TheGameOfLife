@@ -5,7 +5,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
-import entitys.Address;
 import entitys.Nif;
 
 public class NifTest {
@@ -31,7 +30,7 @@ public class NifTest {
 	}
 	
 	/**
-	 * Método que se ejecuta antes de cada pruebas.
+	 * Método que se ejecuta antes de cada prueba.
 	 */
 	@BeforeEach
 	public void initializeTestData() {	
