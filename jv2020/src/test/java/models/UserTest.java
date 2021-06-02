@@ -67,8 +67,15 @@ class UserTest {
 	}
 
 	@Test
-	void testSetClaveAcceso() {	
-		// TODO Auto-generated method stub	
+	void testSetClaveAcceso() {
+
+		Password localPassword;
+		try {
+			localPassword = new Password("Miau#32");
+			userTest2.setPassword(localPassword);
+			assertEquals(userTest2.getPassword(), localPassword);
+		} catch (ModelsException e) {
+		}
 	}
 
 	@Test
