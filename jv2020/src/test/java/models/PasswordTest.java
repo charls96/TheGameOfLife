@@ -67,7 +67,10 @@ class PasswordTest {
 
 	@Test
 	public void testSetPasswordNotValid() {
-		// TODO Auto-generated method stub
+		try {
+			passwordTest2.setText("rma8");
+		} catch (ModelsException | AssertionError e) {
+			assertEquals(passwordTest2.getText(), "Goe1iYixy");
+		}
 	}
-
 }
