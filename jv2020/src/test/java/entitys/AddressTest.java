@@ -1,4 +1,4 @@
-package models;
+package entitys;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;

@@ -1,5 +1,5 @@
 
-package models;
+package entitys;
 
 public class CoordinateTest {
 

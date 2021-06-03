@@ -1,4 +1,4 @@
-package models;
+package entitys;
 
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
