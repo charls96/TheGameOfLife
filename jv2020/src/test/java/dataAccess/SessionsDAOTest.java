@@ -55,9 +55,9 @@ class SessionsDAOTest {
 	}
 	
 	@Test
-	void testGetInstance() {
-		SessionsDAO singleton = SessionsDAO.getInstance();	
-		assertSame(SessionsDAO.getInstance(), singleton);
+	void testGetInstance() {	
+		// TODO
+		fail("Test sin implementar.");		
 	}
 
 	// Test's CON DATOS VALIDOS
@@ -71,9 +71,8 @@ class SessionsDAOTest {
 	
 	@Test
 	void testFindAll() {
-		data.createSession(this.sessionTest);
-		assertEquals(data.findAllSessions().size(), 1);
-		data.deleteSession(this.sessionTest);
+		// TODO
+		fail("Test sin implementar.");
 	}
 
 	@Test
@@ -85,8 +84,8 @@ class SessionsDAOTest {
 	
 	@Test
 	void testDelete() {	
-		data.createSession(this.sessionTest);
-		assertSame(data.deleteSession(this.sessionTest), this.sessionTest);
+		// TODO
+		fail("Test sin implementar.");
 	}
 
 	@Test
@@ -101,8 +100,8 @@ class SessionsDAOTest {
 
 	@Test
 	void testDeleteAll() {	
-		data.deleteAllSessions();
-		assertEquals(data.findAllSessions().size(), 0);
+		// TODO
+		fail("Test sin implementar.");
 	}
 	
 	// Test's CON DATOS ANÓMALOS
@@ -114,12 +113,8 @@ class SessionsDAOTest {
 	
 	@Test
 	void testDeleteSessionNotExist() {	
-		try {
-			data.deleteSession(sessionTestNotExist);
-			fail("No debe llegar aquí...");		
-		} 
-		catch (DataAccessException e) {	
-		}
+		// TODO
+		fail("Test sin implementar.");
 	}
 	
 	@Test 

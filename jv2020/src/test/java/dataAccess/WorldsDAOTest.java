@@ -72,7 +72,8 @@ class WorldsDAOTest {
 	
 	@Test
 	void testFind() {	
-		assertEquals(data.findWorld("Demo").getId(), "Demo");
+		// TODO
+		fail("Test sin implementar.");
 	}
 	
 	@Test
@@ -91,8 +92,8 @@ class WorldsDAOTest {
 	
 	@Test
 	void testDelete() {	
-		data.createWorld(this.worldTest);
-		assertSame(data.deleteWorld(this.worldTest), this.worldTest);
+		// TODO
+		fail("Test sin implementar.");
 	}
 
 	@Test
@@ -107,8 +108,8 @@ class WorldsDAOTest {
 
 	@Test
 	void testDeleteAll() {	
-		data.deleteAllWorlds();
-		assertEquals(data.findAllWorlds().size(), 1);
+		// TODO
+		fail("Test sin implementar.");
 	}
 	
 	// Test's CON DATOS ANÓMALOS
@@ -120,12 +121,8 @@ class WorldsDAOTest {
 	
 	@Test
 	void testDeleteWorldNotExist() {	
-		try {
-			data.deleteWorld(worldTestNotExist);
-			fail("No debe llegar aquí...");		
-		} 
-		catch (DataAccessException e) {	
-		}
+		// TODO
+		fail("Test sin implementar.");
 	}
 	
 	@Test 

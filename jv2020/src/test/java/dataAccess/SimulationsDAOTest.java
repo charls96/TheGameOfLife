@@ -65,9 +65,8 @@ class SimulationsDAOTest {
 	
 	@Test
 	void testFind() {	
-		data.createSimulation(this.simulationTest);
-		assertEquals(data.findSimulation(this.simulationTest), this.simulationTest);
-		data.deleteSimulation(this.simulationTest);
+		// TODO
+		fail("Test sin implementar.");
 	}
 	
 	@Test
@@ -79,9 +78,8 @@ class SimulationsDAOTest {
 
 	@Test
 	void testCreate() {		
-		data.createSimulation(this.simulationTest);
-		assertSame(this.simulationTest, data.findSimulation(this.simulationTest));
-		data.deleteSimulation(this.simulationTest);
+		// TODO
+		fail("Test sin implementar.");
 	}
 	
 	@Test
@@ -92,12 +90,8 @@ class SimulationsDAOTest {
 
 	@Test
 	void testUpdate() {
-		data.createSimulation(this.simulationTest);
-		Simulation localSimulationTest = data.findSimulation(this.simulationTest);
-		localSimulationTest.setDate(EasyDate.today().minusDays(1));
-		data.updateSimulation(localSimulationTest);
-		assertEquals(data.findSimulation(localSimulationTest.getId()), localSimulationTest);
-		data.deleteSimulation(localSimulationTest);
+		// TODO
+		fail("Test sin implementar.");
 	}
 
 	@Test
@@ -110,7 +104,8 @@ class SimulationsDAOTest {
 	
 	@Test
 	void testFindSimulationNotExist() {
-		assertNull(data.findSimulation(simulationTestNotExist));
+		// TODO
+		fail("Test sin implementar.");
 	}
 	
 	@Test
@@ -125,12 +120,8 @@ class SimulationsDAOTest {
 	
 	@Test 
 	void testUpdateSimulationNotExist() {
-		try {	
-			data.updateSimulation(simulationTestNotExist); 
-			fail("No debe llegar aquí...");
-		} 
-		catch (DataAccessException e) {	
-		}
+		// TODO
+		fail("Test sin implementar.");
 	}
 
 }
