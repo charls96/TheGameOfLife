@@ -63,7 +63,8 @@ public class AddressTest {
 	
 	@Test
 	public void testSetNumber() {
-		// TODO Auto-generated method stub
+		this.addressTest2.setNumber("0");
+		assertEquals(this.addressTest2.getNumber(), "0");
 	}
 	
 	@Test
