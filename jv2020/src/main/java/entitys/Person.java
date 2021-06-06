@@ -101,5 +101,14 @@ public class Person implements Serializable {
 		return birthDate.isBefore(EasyDate.now().minusYears(16));
 	}
 
+	@Override
+	public String toString() {
+		return 	"NIF: " + nif +
+				", Nombre: " + name +
+				", Apellidos: " + surnames +
+				", Dirección: " + address +
+				", email: " + mail +
+				", Fecha de nacimiento: " + birthDate;
+	}
 	
 }
