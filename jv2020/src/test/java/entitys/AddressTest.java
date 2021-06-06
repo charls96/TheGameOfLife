@@ -115,7 +115,12 @@ public class AddressTest {
 	
 	@Test
 	public void testSetNumberNotValid() {
-		// TODO Auto-generated method stub
+		try {
+			this.addressTest2.setNumber("n0 valid4");
+			fail("No debe llegar aquí...");
+		} 
+		catch (ModelsException e) { 
+		}
 	}
 	
 	@Test
