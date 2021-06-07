@@ -112,7 +112,12 @@ public class AddressTest {
 	
 	@Test
 	public void testSetNumberNull() {
-		// TODO Auto-generated method stub
+		try {
+			this.addressTest2.setNumber(null);
+			fail("No debe llegar aquí...");
+		} 
+		catch (AssertionError | Exception e) { 
+}
 	}
 	
 	@Test
