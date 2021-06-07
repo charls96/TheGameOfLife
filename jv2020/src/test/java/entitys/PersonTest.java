@@ -25,4 +25,13 @@ public class PersonTest {
         personTest1 = new User(nif, "Luis", "García Rodríguez", address, mail, birthDate,
                 registeredDate, password, User.RoleUser.REGISTERED);
     }
+     
+     /**
+     * Método que se ejecuta antes de cada test.
+     */
+    @BeforeEach
+    void clearTestData() {
+        personTest2 = new User();
+    }
+
 }
