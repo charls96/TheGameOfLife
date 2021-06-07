@@ -130,7 +130,12 @@ class UserTest {
 
 	@Test
 	void testSetRoleNull() {
-		// TODO Auto-generated method stub
-	}
+		try {
+			userTest2.setRole(null);
+			fail("No debe llegar aquí...");
+		} 
+		catch (AssertionError e) { 		
+			assertTrue(userTest2.getRole() != null);
+		}	}
 
 }
