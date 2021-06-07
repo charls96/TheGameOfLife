@@ -110,8 +110,7 @@ public class SimulationsDAO extends IndexSortTemplate implements OperationsDAO {
 
 	@Override
 	public void deleteAll() {
-		// TODO Auto-generated method stub
-		
+		simulationsData.clear();
 	}
 
 
