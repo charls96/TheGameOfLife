@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import utils.EasyDate;
 
-public class Person implements Serializable {
+public abstract class Person implements Serializable {
 	protected Nif nif;
 	protected String name;
 	protected String surnames;

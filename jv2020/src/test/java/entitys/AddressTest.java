@@ -63,7 +63,8 @@ public class AddressTest {
 	
 	@Test
 	public void testSetNumber() {
-		// TODO Auto-generated method stub
+		this.addressTest2.setNumber("0");
+		assertEquals(this.addressTest2.getNumber(), "0");
 	}
 	
 	@Test
@@ -115,12 +116,22 @@ public class AddressTest {
 	
 	@Test
 	public void testSetNumberNotValid() {
-		// TODO Auto-generated method stub
+		try {
+			this.addressTest2.setNumber("n0 valid4");
+			fail("No debe llegar aquí...");
+		} 
+		catch (ModelsException e) { 
+		}
 	}
 	
 	@Test
 	public void testSetPostalCodeNull() {
-		// TODO Auto-generated method stub
+		try {
+			this.addressTest2.setPostalCode(null);
+			fail("No debe llegar aquí...");
+		} 
+		catch (ModelsException e) { 
+		}
 	}
 	
 	@Test
