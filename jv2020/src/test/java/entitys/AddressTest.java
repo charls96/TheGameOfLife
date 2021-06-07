@@ -135,7 +135,12 @@ public class AddressTest {
 	
 	@Test
 	public void testSetPostalCodeNotValid() {
-		// TODO Auto-generated method stub
+		try {
+			this.addressTest2.setPostalCode("n0 valid4");
+			fail("No debe llegar aquí...");
+		} 
+		catch (ModelsException e) { 
+		}
 	}
 	
 	@Test
