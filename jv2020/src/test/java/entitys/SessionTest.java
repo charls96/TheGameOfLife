@@ -86,7 +86,12 @@ class SessionTest {
 
 	@Test
 	public void testSetUserNull() {
-		// TODO Auto-generated method stub
+		try {
+			sessionTest2.setUser(null);
+			fail("No debe llegar aquí...");
+		} 
+		catch (AssertionError e) { 
+		}
 	}
 	
 	@Test
