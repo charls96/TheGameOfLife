@@ -155,7 +155,10 @@ public class AddressTest {
 	
 	@Test
 	public void testSetLocationNotValid() {
-		// TODO Auto-generated method stub
+		try {
+			this.addressTest2.setLocation("no valid4");
+			fail("No debe llegar aquí...");
+		} 
+		catch (ModelsException e) { 
+		}
 	}
-
-} 
