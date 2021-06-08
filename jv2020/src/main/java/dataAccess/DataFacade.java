@@ -2,7 +2,10 @@ package dataAccess;
 
 import java.util.List;
 
-import dataAccess.db4o.*;
+import dataAccess.mySql.UsersDAO;
+import dataAccess.db4o.SessionsDAO;
+import dataAccess.db4o.SimulationsDAO;
+import dataAccess.db4o.WorldsDAO;
 import entitys.Identifiable;
 import entitys.Session;
 import entitys.Simulation;
@@ -30,8 +33,12 @@ public class DataFacade {
 		this.worldsDAO.close();	
 	}
 	
-	// FACADE usersDAO
+	// FACADE UsersDAO
 
+	public User findUser(User user) {
+		return this.findUser(user.getId());
+	}
+	
 	public User findUser(String id) {
 		return (User) this.usersDAO.find(id);
 	}
@@ -98,6 +105,10 @@ public class DataFacade {
 
 	// FACADE SessionsDAO
 
+	public Session findSession(Session session) {
+		return this.findSession(session.getId());
+	}
+	
 	public Session findSession(String id) {
 		return (Session) this.sessionsDAO.find(id);
 	}
@@ -143,6 +154,10 @@ public class DataFacade {
 
 	// FACADE SimulationsDAO
 
+	public Simulation findSimulation(Simulation simulation) {
+		return this.findSimulation(simulation.getId());
+	}
+
 	public Simulation findSimulation(String id) {
 		return (Simulation) this.simulationsDAO.find(id);
 	}
@@ -187,6 +202,10 @@ public class DataFacade {
 	}
 
 	// FACADE WorldsDAO
+
+	public World findWorld(World world) {
+		return this.findWorld(world.getId());
+	}
 
 	public World findWorld(String id) {
 		return (World) this.worldsDAO.find(id);

@@ -17,7 +17,7 @@ import dataAccess.memory.IndexSortTemplate;
 import entitys.Address;
 import entitys.Identifiable;
 import entitys.Mail;
-import entitys.ModelsException;
+import entitys.EntitysException;
 import entitys.Nif;
 import entitys.Password;
 import entitys.User;
@@ -108,7 +108,7 @@ public class UsersDAO extends IndexSortTemplate implements OperationsDAO, Persis
 					RoleUser.REGISTERED
 					));
 		} 
-		catch (ModelsException e) {
+		catch (EntitysException e) {
 			e.printStackTrace();
 		} 
 		catch (DataAccessException e) {

@@ -1,8 +1,6 @@
 package entitys;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import static org.junit.jupiter.api.Assertions.assertNotSame;
 
@@ -11,12 +9,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import entitys.Address;
-import entitys.Mail;
-import entitys.Nif;
-import entitys.Password;
-import entitys.Session;
-import entitys.User;
 import utils.EasyDate;
 
 class SessionTest {

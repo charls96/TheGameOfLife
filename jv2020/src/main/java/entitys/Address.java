@@ -37,7 +37,7 @@ public class Address implements Serializable {
 			this.street = street;
 			return;
 		}
-		throw new ModelsException("Calle incorrecta.");
+		throw new EntitysException("Calle incorrecta.");
 	}
 
 	private boolean isValidStreet(String street) {
@@ -54,7 +54,7 @@ public class Address implements Serializable {
 			this.number = number;
 			return;
 		}
-		throw new ModelsException("Número incorrecto.");
+		throw new EntitysException("Número incorrecto.");
 
 	}
 
@@ -72,7 +72,7 @@ public class Address implements Serializable {
 			this.postalCode = postalCode;
 			return;
 		}
-		throw new ModelsException("Código postal incorrecto.");
+		throw new EntitysException("Código postal incorrecto.");
 	}
 
 
@@ -90,7 +90,7 @@ public class Address implements Serializable {
 			this.location = location;
 			return;
 		}
-		throw new ModelsException("Ubicación incorrecta.");
+		throw new EntitysException("Ubicación incorrecta.");
 	}
 	
 	private boolean isValidLocation(String location) {

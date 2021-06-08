@@ -1,6 +1,5 @@
 package entitys;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import org.junit.jupiter.api.AfterAll;
@@ -8,9 +7,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import entitys.Mail;
-import entitys.ModelsException;
 
 public class MailTest {
 
@@ -25,7 +21,7 @@ public class MailTest {
 		try {
 			mailTest1 = new Mail("nombre@gmail.com");
 		} 
-		catch (ModelsException e) {
+		catch (EntitysException e) {
 			e.printStackTrace();
 		}
 	}
@@ -75,7 +71,7 @@ public class MailTest {
 			mailTest2.setText("  ");
 			fail("No debe llegar aquí...");
 		} 
-		catch (ModelsException e) {		
+		catch (EntitysException e) {		
 		}
 	}
 

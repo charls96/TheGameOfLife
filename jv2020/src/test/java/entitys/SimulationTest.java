@@ -3,20 +3,12 @@ package entitys;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
-import static org.junit.jupiter.api.Assertions.assertNotSame;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import entitys.Address;
-import entitys.Mail;
-import entitys.Nif;
-import entitys.Password;
-import entitys.Simulation;
-import entitys.User;
-import entitys.World;
 import entitys.User.RoleUser;
 import utils.EasyDate;
 

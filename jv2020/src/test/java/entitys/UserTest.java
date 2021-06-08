@@ -3,19 +3,13 @@ package entitys;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotSame;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import entitys.Address;
-import entitys.Mail;
-import entitys.ModelsException;
-import entitys.Nif;
-import entitys.Password;
-import entitys.User;
 import entitys.User.RoleUser;
 import utils.EasyDate;
 
@@ -74,7 +68,7 @@ class UserTest {
 			localPassword = new Password("Miau#32");
 			userTest2.setPassword(localPassword);
 			assertEquals(userTest2.getPassword(), localPassword);
-		} catch (ModelsException e) {
+		} catch (EntitysException e) {
 		}
 	}
 
@@ -113,7 +107,7 @@ class UserTest {
 			userTest2.setBirthDate(new EasyDate(4050, 2, 10));	
 			fail("No debe llegar aquí...");		
 		} 
-		catch (ModelsException e) {			
+		catch (EntitysException e) {			
 		}
 	}
 

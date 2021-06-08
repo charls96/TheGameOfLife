@@ -23,8 +23,8 @@ public class DataConnection {
 	}
 	
 	private DataConnection() {
-		//this.url = Configuration.get().getProperty("mySql.url");
-		this.url = Configuration.get().getProperty("mySql.localhost");
+		this.url = Configuration.get().getProperty("mySql.url");
+		//this.url = Configuration.get().getProperty("mySql.localhost");
 		this.user = Configuration.get().getProperty("mySql.user");
 		this.password = Configuration.get().getProperty("mySql.passwd");
 		initDataConnection();

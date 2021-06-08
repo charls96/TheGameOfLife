@@ -95,7 +95,7 @@ public abstract class Person implements Serializable {
 			return;
 		}
 
-		throw new ModelsException("birthDate: no válida");
+		throw new EntitysException("birthDate: no válida");
 	}
 
 	private boolean isValidBirthDate(EasyDate birthDate) {

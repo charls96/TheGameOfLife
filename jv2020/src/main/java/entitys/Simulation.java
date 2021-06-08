@@ -77,7 +77,7 @@ public class Simulation implements Identifiable, Serializable {
 			this.date = date;
 			return;
 		}
-		throw new ModelsException("Date: incorrecta.");
+		throw new EntitysException("Date: incorrecta.");
 	}
 	
 	private boolean isValidDate(EasyDate date) {	
@@ -94,7 +94,7 @@ public class Simulation implements Identifiable, Serializable {
 			this.simulationCicles = simulationCicles;
 			return;
 		}
-		throw new ModelsException("Simulation: Ciclos fuera de rango...");
+		throw new EntitysException("Simulation: Ciclos fuera de rango...");
 	}
 	
 	

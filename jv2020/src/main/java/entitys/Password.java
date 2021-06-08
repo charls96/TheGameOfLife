@@ -30,15 +30,17 @@ public class Password implements Serializable {
 		assert text != null;
 		if (isValidPassword(text)) {
 			this.text = Cryptography.cesar(text);
-		}
-		else {
-			if (this.text == null) {							
-				this.text = new Password().getText();
-			}
-			throw new ModelsException("Formato no válido.");
-		}
+			return;
+		}	
+		throw new EntitysException("Formato no válido.");
 	}
-
+	
+	public void setEncriptedText(String encriptedText) {
+		assert encriptedText != null;
+		this.text = encriptedText;
+		
+	}
+	
 	private boolean isValidPassword(String text) {
 		return text.matches(Regex.PASSWORD);        
 	}

@@ -1,14 +1,12 @@
 package entitys;
 
 import static org.junit.Assert.fail;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotSame;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import entitys.ModelsException;
-import entitys.Password;
 
 class PasswordTest {
 
@@ -36,7 +34,7 @@ class PasswordTest {
 	void testSetText() {
 		try {
 			passwordTest2.setText("ClaveTest");
-		} catch (ModelsException e) {
+		} catch (EntitysException e) {
 			fail("No debe llegar aquí...");
 		}
 		assertEquals(passwordTest2.getText(), "Goe1iYixy");
@@ -69,7 +67,7 @@ class PasswordTest {
 	public void testSetPasswordNotValid() {
 		try {
 			passwordTest2.setText("rma8");
-		} catch (ModelsException | AssertionError e) {
+		} catch (EntitysException | AssertionError e) {
 			assertEquals(passwordTest2.getText(), "Goe1iYixy");
 		}
 	}

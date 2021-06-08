@@ -3,16 +3,12 @@ package entitys;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotSame;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import entitys.Address;
-import entitys.ModelsException;
 
 
 public class AddressTest {
@@ -106,7 +102,7 @@ public class AddressTest {
 			this.addressTest2.setStreet("n0 valid4");
 			fail("No debe llegar aquí...");
 		} 
-		catch (ModelsException e) { 
+		catch (EntitysException e) { 
 		}
 	}
 	
@@ -126,7 +122,7 @@ public class AddressTest {
 			this.addressTest2.setNumber("n0 valid4");
 			fail("No debe llegar aquí...");
 		} 
-		catch (ModelsException e) { 
+		catch (EntitysException e) { 
 		}
 	}
 	
@@ -136,7 +132,7 @@ public class AddressTest {
 			this.addressTest2.setPostalCode(null);
 			fail("No debe llegar aquí...");
 		} 
-		catch (ModelsException e) { 
+		catch (EntitysException e) { 
 		}
 	}
 	
@@ -146,7 +142,7 @@ public class AddressTest {
 			this.addressTest2.setPostalCode("n0 valid4");
 			fail("No debe llegar aquí...");
 		} 
-		catch (ModelsException e) { 
+		catch (EntitysException e) { 
 		}
 	}
 	
@@ -156,7 +152,7 @@ public class AddressTest {
 			this.addressTest2.setLocation(null);
 			fail("No debe llegar aquí...");
 		} 
-		catch (ModelsException e) { 
+		catch (EntitysException e) { 
 		}
 	}
 	
@@ -166,6 +162,7 @@ public class AddressTest {
 			this.addressTest2.setLocation("no valid4");
 			fail("No debe llegar aquí...");
 		} 
-		catch (ModelsException e) { 
+		catch (EntitysException e) { 
 		}
 	}
+}

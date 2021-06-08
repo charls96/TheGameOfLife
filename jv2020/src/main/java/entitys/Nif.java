@@ -32,7 +32,7 @@ public class Nif implements Serializable {
 			this.text = text;
 			return;
 		}
-		throw new ModelsException("Nif: formato no válido");
+		throw new EntitysException("Nif: formato no válido");
 	}
 
 	private boolean isValidNif(String text) {
