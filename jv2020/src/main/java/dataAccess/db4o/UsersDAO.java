@@ -13,7 +13,7 @@ import dataAccess.OperationsDAO;
 import entitys.Address;
 import entitys.Identifiable;
 import entitys.Mail;
-import entitys.ModelsException;
+import entitys.EntitysException;
 import entitys.Nif;
 import entitys.Password;
 import entitys.Session;
@@ -68,7 +68,7 @@ public class UsersDAO  implements OperationsDAO {
 					RoleUser.REGISTERED
 					));
 		} 
-		catch (ModelsException | DataAccessException e) {
+		catch (EntitysException | DataAccessException e) {
 		}
 	}
 

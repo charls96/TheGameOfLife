@@ -1,14 +1,13 @@
 package entitys;
 
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+
 import utils.EasyDate;
 
 public class PersonTest {
 
-    private Person personTest1;
+    private static Person personTest1;
     private Person personTest2;
 
     /**

@@ -3,6 +3,7 @@ package utils;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Date;
 import java.time.LocalDateTime;
 
 public class EasyDate implements Serializable {
@@ -31,7 +32,7 @@ public class EasyDate implements Serializable {
 	
 	public EasyDate(String date) {
 		assert date != null;
-		String[] partes = date.split("[/-.]");	
+		String[] partes = date.split("[/-]");	
 		int year = Integer.parseInt(partes[0]);
 		int month = Integer.parseInt(partes[1]);
 		int day = Integer.parseInt(partes[2]);
@@ -44,6 +45,10 @@ public class EasyDate implements Serializable {
 
 	private EasyDate(LocalDateTime localDateTime) {
 		this(localDateTime.toLocalDate(),localDateTime.toLocalTime());
+	}
+
+	public EasyDate(java.sql.Date date) {
+		this(date.toString());
 	}
 
 	public int getYear() {
@@ -70,6 +75,10 @@ public class EasyDate implements Serializable {
 		return this.localDateTime.getSecond();
 	}
 	
+	public long timeStampSQL() {
+		return java.sql.Timestamp.valueOf(this.localDateTime).getTime();
+	}
+	
 	public boolean isAfter(EasyDate easyDate) {
 		return this.localDateTime.isAfter(easyDate.localDateTime);
 	}
@@ -79,19 +88,45 @@ public class EasyDate implements Serializable {
 	}
 
 	public EasyDate plusYears(int years) {
-		return new EasyDate(this.localDateTime.minusYears(years));
+		return new EasyDate(this.localDateTime.plusYears(years));
 	}
 	
 	public EasyDate minusYears(int years) {
 		return new EasyDate(this.localDateTime.minusYears(years));
 	}
 	
+	public EasyDate plusDays(long days) {
+		return new EasyDate(this.localDateTime.plusDays(days));
+	}
+	
+	public EasyDate minusDays(long days) {
+		return new EasyDate(this.localDateTime.minusDays(days));
+	}
+	
+	public EasyDate plusMonths(long months) {
+		return new EasyDate(this.localDateTime.plusMonths(months));
+	}
+
+	public EasyDate minusMonths(long months) {
+		return new EasyDate(this.localDateTime.minusMonths(months));
+	}
+	
+	public EasyDate plusHours(long hours) {
+		return new EasyDate(this.localDateTime.plusHours(hours));
+	}
+	
+	public EasyDate minusHours(long hours) {
+		return new EasyDate(this.localDateTime.minusHours(hours));
+	}
+	
+	// TODO...minutos y segundos
+	
 	public String toStringTimeStamp() {
 		return String.format("%4d%02d%02d%02d%02d%02d", 
 				this.getYear(), this.getMonth(), this.getDay(), 
-				this.getHour(), this.getMinute(), this.getSecond());	
+				this.getHour(), this.getMinute(), this.getSecond());		
 	}
-
+	
 	@Override
 	public EasyDate clone(){
 		return new EasyDate(this.localDateTime);
@@ -129,6 +164,6 @@ public class EasyDate implements Serializable {
 			return false;
 		return true;
 	}
-	
+
 	
 } 

@@ -1,11 +1,15 @@
 package entitys;
 
+import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-
-import entitys.Nif;
+import org.junit.jupiter.api.Test;
 
 public class NifTest {
 	private static Nif nifTest1; 
@@ -44,5 +48,24 @@ public class NifTest {
 	public void clearTestData() {
 		this.nifTest2 = null;
 	}
+	
+	// Test's CON DATOS VALIDOS
+	
+	@Test
+	public void testSetText() {
+		this.nifTest2.setText("00000000T");
+		assertEquals(this.nifTest2.getText(), "00000000T");
+	}
+	
+	@Test
+	public void testClone() {
+		assertNotSame(nifTest1, nifTest1.clone());
+	}
+	
+	@Test
+	public void testEqualsObject() {
+		assertTrue(nifTest1.equals(nifTest1.clone()));
+	}
+	
 	
 } 
