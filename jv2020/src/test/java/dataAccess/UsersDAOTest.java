@@ -1,5 +1,6 @@
 package dataAccess;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
@@ -73,14 +74,15 @@ class UsersDAOTest {
 
 	@Test
 	void testFindAll() {
-		// TODO
-		fail("Test sin implementar.");
+		data.createUser(this.userTest);
+		assertTrue(data.findAllUsers().size() == 3);
+		data.deleteUser(this.userTest);
 	}
 
 	@Test
 	void testCreate() {		
 		data.createUser(this.userTest);
-		assertSame(userTest, data.findUser(this.userTest));
+		assertEquals(userTest, data.findUser(this.userTest));
 		data.deleteUser(this.userTest);
 	}
 
@@ -92,8 +94,12 @@ class UsersDAOTest {
 
 	@Test
 	void testUpdate() {
-		// TODO
-		fail("Test sin implementar.");
+		data.createUser(this.userTest);
+		User localUserTest = data.findUser(this.userTest);
+		localUserTest.setSurnames("Ramírez Pinto");
+		data.updateUser(localUserTest);
+		assertEquals(data.findUser(localUserTest.getId()).getSurnames(), "Ramírez Pinto");
+		data.deleteUser(localUserTest);
 	}
 
 	@Test
@@ -102,6 +108,7 @@ class UsersDAOTest {
 		// Predeterminados del sistema...
 		assertEquals(data.findUser("00000000T").getId(), "00000000T");
 		assertEquals(data.findUser("00000001R").getId(), "00000001R");
+		assertTrue(data.findAllUsers().size() == 2);
 	}
 
 	// Test's CON DATOS ANÓMALOS
@@ -113,8 +120,15 @@ class UsersDAOTest {
 
 	@Test
 	void testCreateUserRepeated () {	
-		// TODO
-		fail("Test sin implementar.");
+		try {
+			data.createUser(this.userTest);
+			data.createUser(this.userTest);		
+			fail("No debe llegar aquí...");
+
+		} 
+		catch (DataAccessException e) {		
+			data.deleteUser(this.userTest);
+		}
 	}
 
 	@Test
@@ -129,8 +143,12 @@ class UsersDAOTest {
 
 	@Test 
 	void testUpdateUserNotExist() {
-		// TODO
-		fail("Test sin implementar.");
+		try {
+			data.updateUser(userTestNotExist);
+			fail("No debe llegar aquí...");
+		} 
+		catch (DataAccessException e) {	
+		}
 	}
 
 }
