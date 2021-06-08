@@ -103,7 +103,13 @@ public class EasyDate implements Serializable {
 		return new EasyDate(this.localDateTime.minusDays(days));
 	}
 	
-	// TODO...meses 
+	public EasyDate plusMonths(long months) {
+		return new EasyDate(this.localDateTime.plusMonths(months));
+	}
+
+	public EasyDate minusMonths(long months) {
+		return new EasyDate(this.localDateTime.minusMonths(months));
+	}
 	
 	public EasyDate plusHours(long hours) {
 		return new EasyDate(this.localDateTime.plusHours(hours));
