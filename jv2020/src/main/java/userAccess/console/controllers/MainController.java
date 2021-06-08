@@ -140,7 +140,7 @@ public class MainController {
 	}
 
 	private void showDataUsers() {
-		this.mainView.showMessage("Opción no disponible...");
+		mainView.showMessage(data.toStringDataUsers());
 	}
 
 	private void deleteUser() {
