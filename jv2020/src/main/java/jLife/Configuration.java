@@ -62,10 +62,10 @@ public class Configuration {
 		configuration.put("password.default", "Miau#0");	
 		configuration.put("session.maxAttempts", "3");
 		
-		configuration.put("address.street", "street");
+		configuration.put("address.street", "Street");
 		configuration.put("address.number", "00");
 		configuration.put("address.postalCode", "00000");
-		configuration.put("address.location", "location");
+		configuration.put("address.location", "Location");
 
 		configuration.put("data.directoryName", "data");
 		configuration.put("data.fileUsersName", "users.dat");
