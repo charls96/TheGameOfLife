@@ -63,7 +63,12 @@ public class MailTest {
 	
 	@Test
 	public void testSetTextNotValid() {
-		// TODO Auto-generated method stub
+		try {
+			mailTest2.setText("usuario-mail-es");
+			fail("No debe llegar aquí...");
+		} 
+		catch (ModelsException e) { 
+		}
 	}
 
 	@Test
