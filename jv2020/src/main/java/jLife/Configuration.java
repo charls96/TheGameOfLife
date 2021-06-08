@@ -61,6 +61,11 @@ public class Configuration {
 		configuration.put("nif.default", "00000001R");
 		configuration.put("password.default", "Miau#0");	
 		configuration.put("session.maxAttempts", "3");
+		
+		configuration.put("address.street", "street");
+		configuration.put("address.number", "00");
+		configuration.put("address.postalCode", "00000");
+		configuration.put("address.location", "location");
 
 		configuration.put("data.directoryName", "data");
 		configuration.put("data.fileUsersName", "users.dat");
