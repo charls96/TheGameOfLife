@@ -132,7 +132,8 @@ public class MainController {
 	}
 
 	private void deleteSession() {
-		this.mainView.showMessage("Opción no disponible...");
+		data.deleteSession(session);
+		mainView.showMessage("Eliminada la sesion " + session.getId());
 	}
 
 	private void modifySession() {
