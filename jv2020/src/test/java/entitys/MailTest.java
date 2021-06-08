@@ -59,12 +59,8 @@ public class MailTest {
 
 	@Test
 	public void testSetText() {
-		try {
-			mailTest1.setText("usuario@mail.es");
-			assertEquals(mailTest1.setText(), "usuario@mail.es");
-		} 
-		catch (Exception e) { 
-		}
+		mailTest1.setText("usuario@mail.es");
+		assertEquals(mailTest1.setText(), "usuario@mail.es");
 	}
 
 	// Test con DATOS NO VALIDOS
