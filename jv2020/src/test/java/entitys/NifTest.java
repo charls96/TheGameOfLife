@@ -1,9 +1,12 @@
 package entitys;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import entitys.Nif;
 
@@ -43,6 +46,24 @@ public class NifTest {
 	@AfterEach
 	public void clearTestData() {
 		this.nifTest2 = null;
+	}
+	
+	// Test's CON DATOS VALIDOS
+	
+	@Test
+	public void testSetText() {
+		this.nifTest2.setText("00000000T");
+		assertEquals(this.nifTest2.getText(), "00000000T");
+	}
+	
+	@Test
+	public void testClone() {
+		
+	}
+	
+	@Test
+	public void testEqualsObject() {
+		
 	}
 	
 } 
