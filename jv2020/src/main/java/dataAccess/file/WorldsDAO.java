@@ -77,7 +77,7 @@ public class WorldsDAO extends IndexSortTemplate implements OperationsDAO, Persi
 		}
 	}
 	
-	//OPERACIONES DAO
+	//OPERACIONES DAO.
 	
 	@Override
 	public World find(String id) {	
