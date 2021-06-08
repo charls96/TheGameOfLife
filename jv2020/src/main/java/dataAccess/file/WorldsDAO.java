@@ -77,7 +77,7 @@ public class WorldsDAO extends IndexSortTemplate implements OperationsDAO, Persi
 		}
 	}
 	
-	//OPERACIONES DAO
+	//OPERACIONES DAO.
 	
 	@Override
 	public World find(String id) {	
@@ -125,7 +125,7 @@ public class WorldsDAO extends IndexSortTemplate implements OperationsDAO, Persi
 
 	@Override
 	public Identifiable update(Identifiable world) throws DataAccessException {
-		// TODO Auto-generated method stub
+		// TODO
 		return null;	
 	}
 
