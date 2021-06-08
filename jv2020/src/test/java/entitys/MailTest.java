@@ -59,7 +59,12 @@ public class MailTest {
 
 	@Test
 	public void testSetText() {
-		// TODO Auto-generated method stub
+		try {
+			mailTest1.setText("usuario@mail.es");
+			assertEquals(mailTest1.setText(), "usuario@mail.es");
+		} 
+		catch (Exception e) { 
+		}
 	}
 
 	// Test con DATOS NO VALIDOS
