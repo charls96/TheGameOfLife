@@ -220,11 +220,11 @@ public class UsersDAO extends IndexSortTemplate implements OperationsDAO, Persis
 
 	@Override
 	public String toStringIds() {
-		StringBuilder result = new StringBuilder();
+		StringBuilder textData = new StringBuilder();
 		for (Identifiable user: this.usersData) {
-			result.append("\n" + user.getId()); 
+			textData.append("\n" + user.getId()); 
 		}
-		return result.toString();
+		return textData.toString();
 	}
 
 	@Override
