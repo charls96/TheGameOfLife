@@ -1,6 +1,7 @@
 package entitys;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import utils.EasyDate;
 
@@ -11,9 +12,9 @@ public abstract class Person implements Serializable {
 	protected Address address;
 	protected Mail mail;
 	protected EasyDate birthDate;
-	
-	public Person(Nif nif, String name, String surnames, 
-			Address address, Mail mail, EasyDate birthDate) {
+
+	public Person(Nif nif, String name, String surnames,
+				  Address address, Mail mail, EasyDate birthDate) {
 		this.nif = nif;
 		this.name = name;
 		this.surnames = surnames;
@@ -27,20 +28,20 @@ public abstract class Person implements Serializable {
 		this.name = new String();
 		this.surnames = new String();
 		this.address = new Address();
-		this.mail = new Mail();	
+		this.mail = new Mail();
 		this.birthDate = EasyDate.today();
 	}
-	
+
 	public Person(Person person) {
 		assert person != null;
 		this.nif = new Nif(person.nif);
 		this.name = new String(person.name);
 		this.surnames = new String(person.surnames);
 		this.address = new Address(person.address);
-		this.mail = new Mail(person.mail);	
-		this.birthDate = person.birthDate.clone();	
+		this.mail = new Mail(person.mail);
+		this.birthDate = person.birthDate.clone();
 	}
-	
+
 	public Nif getNif() {
 		return this.nif;
 	}
@@ -65,7 +66,7 @@ public abstract class Person implements Serializable {
 		return this.birthDate;
 	}
 
-	public void setNif(Nif nif) {	
+	public void setNif(Nif nif) {
 		assert nif != null;
 		this.nif = nif;
 	}
@@ -110,5 +111,23 @@ public abstract class Person implements Serializable {
 				", email: " + mail +
 				", Fecha de nacimiento: " + birthDate;
 	}
-	
+
+	@Override
+	public boolean equals(Object o) {
+		if (o == this) return true;
+		if (!(o instanceof Person)) return false;
+		Person person = (Person) o;
+		return Objects.equals(nif, person.nif)
+				&& Objects.equals(name, person.name)
+				&& Objects.equals(surnames, person.surnames)
+				&& Objects.equals(address, person.address)
+				&& Objects.equals(mail, person.mail)
+				&& Objects.equals(birthDate, person.birthDate);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(nif, name, surnames, address, mail, birthDate);
+	}
+
 }
