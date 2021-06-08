@@ -40,8 +40,10 @@ public class DataFacade {
 		return this.usersDAO.findAll();
 	}
 
-	public void altaUser(User user) throws DataAccessException  {
-		this.usersDAO.create(user);
+	
+	public void createUser(User user) throws DataAccessException {
+			assert user != null;
+			this.usersDAO.create(user);
 	}
 
 	public User deleteUser(String id) throws DataAccessException {
