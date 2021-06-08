@@ -125,4 +125,9 @@ public abstract class Person implements Serializable {
 				&& Objects.equals(birthDate, person.birthDate);
 	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(nif, name, surnames, address, mail, birthDate);
+	}
+
 }
