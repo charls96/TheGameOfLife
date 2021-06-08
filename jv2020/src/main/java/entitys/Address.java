@@ -19,8 +19,8 @@ public class Address implements Serializable {
 	}
 
 	public Address() {
-		this(Configuration.get().getProperty("address.street"), Configuration.get().getProperty("address.number"), 
-				Configuration.get().getProperty("address.postalCode"), Configuration.get().getProperty("address.location"));
+		this(Configuration.get().getProperty("address.defaultStreet"), Configuration.get().getProperty("address.defaultNumber"), 
+				Configuration.get().getProperty("address.defaultPostalCode"), Configuration.get().getProperty("address.defaultLocation"));
 	}
 
 	public Address(Address address) {
