@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import utils.Cryptography;
 import utils.Regex;
+import jLife.Configuration;
 
 public class Password implements Serializable {
 
@@ -14,7 +15,7 @@ public class Password implements Serializable {
 	}
 
 	public Password() {
-		this.setText("Miau#00");
+		this.setText(Configuration.get().getProperty("password.default"));
 	}
 
 	public Password(Password password) {
