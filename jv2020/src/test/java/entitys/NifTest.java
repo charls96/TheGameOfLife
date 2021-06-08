@@ -1,6 +1,9 @@
 package entitys;
 
+import static org.junit.Assert.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -58,12 +61,13 @@ public class NifTest {
 	
 	@Test
 	public void testClone() {
-		
+		assertNotSame(nifTest1, nifTest1.clone());
 	}
 	
 	@Test
 	public void testEqualsObject() {
-		
+		assertTrue(nifTest1.equals(nifTest1.clone()));
 	}
+	
 	
 } 
