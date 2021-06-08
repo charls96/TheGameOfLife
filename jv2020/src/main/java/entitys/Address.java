@@ -2,6 +2,7 @@ package entitys;
 
 import java.io.Serializable;
 
+import jLife.Configuration;
 import utils.Regex;
 
 public class Address implements Serializable {
@@ -18,7 +19,8 @@ public class Address implements Serializable {
 	}
 
 	public Address() {
-		this("Street", "00", "00000", "Location");
+		this(Configuration.get().getProperty("address.defaultStreet"), Configuration.get().getProperty("address.defaultNumber"), 
+				Configuration.get().getProperty("address.defaultPostalCode"), Configuration.get().getProperty("address.defaultLocation"));
 	}
 
 	public Address(Address address) {
