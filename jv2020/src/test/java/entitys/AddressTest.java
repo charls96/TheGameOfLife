@@ -117,7 +117,7 @@ public class AddressTest {
 			fail("No debe llegar aquí...");
 		} 
 		catch (AssertionError | Exception e) { 
-}
+		}
 	}
 	
 	@Test
