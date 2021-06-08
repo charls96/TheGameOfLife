@@ -145,7 +145,7 @@ public class MainController {
 	}
 
 	private void deleteUser() {
-		this.mainView.showMessage("Opción no disponible...");
+		data.deleteUser(session.getUser().getId());
 	}
 
 	private void modifyUser() {
