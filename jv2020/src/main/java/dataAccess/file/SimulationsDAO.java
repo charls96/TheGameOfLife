@@ -143,16 +143,19 @@ public class SimulationsDAO extends IndexSortTemplate implements OperationsDAO, 
 	@Override
 	public String toStringData() {	
 		StringBuilder textData = new StringBuilder();
-		for (Identifiable sesion: simulationsData) {
-			textData.append("\n" + sesion); 
+		for (Identifiable simulation: this.findAll()) {
+			textData.append("\n" + simulation); 
 		}
 		return textData.toString();
 	}
 
 	@Override
 	public String toStringIds() {	
-		// TODO Auto-generated method stub
-		return null;
+		StringBuilder textData = new StringBuilder();
+		for (Identifiable simulation: this.findAll()) {
+			textData.append("\n" + simulation.getId()); 
+		}
+		return textData.toString();
 	}
 
 	@Override
