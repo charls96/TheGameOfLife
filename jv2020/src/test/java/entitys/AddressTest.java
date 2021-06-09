@@ -76,7 +76,7 @@ public class AddressTest {
 
 	@Test
 	void testClone() {
-		// TODO Auto-generated method stub
+		assertNotSame(addressTest1, addressTest1.clone());
 	}
 	
 	@Test
