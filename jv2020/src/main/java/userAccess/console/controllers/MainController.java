@@ -128,7 +128,7 @@ public class MainController {
 	}
 
 	private void showDataSessions() {
-		this.mainView.showMessage("Opción no disponible...");	
+		mainView.showMessage(data.toStringDataSessions());	
 	}
 
 	private void deleteSession() {
