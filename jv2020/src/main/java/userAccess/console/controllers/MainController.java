@@ -186,7 +186,8 @@ public class MainController {
 	}
 
 	private void deleteSimulation() {
-		this.mainView.showMessage("Opción no disponible...");	
+		data.deleteSimulation(session.getId());
+		
 	}
 
 	private void modifySimulation() {
