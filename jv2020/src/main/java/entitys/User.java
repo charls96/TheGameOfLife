@@ -12,7 +12,7 @@ public class User extends Person implements Identifiable {
 
 	public User(Nif nif, String name, String surnames,
 			Address address, Mail mail, EasyDate birthDate,
-			EasyDate registeredDate, Password password, RoleUser role) {		
+			EasyDate registeredDate, Password password, RoleUser role) throws EntitysException {		
 		super(nif, name, surnames, address, mail, birthDate);
 		
 		this.setRegisteredDate(registeredDate);
@@ -20,7 +20,7 @@ public class User extends Person implements Identifiable {
 		this.setRole(role);
 	}
 
-	public User() {
+	public User() throws EntitysException {
 		super();			
 		this.registeredDate = EasyDate.today();	
 		this.password = new Password("Miau#00");
@@ -62,6 +62,10 @@ public class User extends Person implements Identifiable {
 
 		if (isValidRegisteredDate(registeredDate)) {
 			this.registeredDate = registeredDate;
+		}
+		else {
+			throw new EntitysException("Fecha alta Usuario: no válida.");
+
 		}
 	}
 
