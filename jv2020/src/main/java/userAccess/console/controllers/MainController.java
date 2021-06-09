@@ -145,7 +145,7 @@ public class MainController {
 	}
 
 	private void deleteUser() {
-		this.mainView.showMessage("Opción no disponible...");
+		data.deleteUser(session.getUser().getId());
 	}
 
 	private void modifyUser() {
@@ -177,7 +177,8 @@ public class MainController {
 	}
 
 	private void showIdsSimulations() {
-		this.mainView.showMessage("Opción no disponible...");	
+		List<Identifiable> simulations = data.findAllSimulations();
+		for (Identifiable i:simulations) mainView.showMessage(i.getId());
 	}
 
 	private void showDataSimulations() {
