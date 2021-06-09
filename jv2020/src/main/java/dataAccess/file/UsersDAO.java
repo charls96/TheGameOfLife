@@ -194,6 +194,7 @@ public class UsersDAO extends IndexSortTemplate implements OperationsDAO, Persis
 
 	@Override
 	public Identifiable update(Identifiable user) throws DataAccessException {
+		
 		assert user != null;
 		int updatedIndex = indexSort(this.usersData, user.getId());
 		if (updatedIndex > 0) {

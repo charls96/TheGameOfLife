@@ -125,8 +125,7 @@ public class SessionsDAO extends IndexSortTemplate implements OperationsDAO, Per
 
 	@Override
 	public Identifiable delete(Identifiable session) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		return this.delete(session.getId());
 	}
 	
 	@Override
@@ -144,9 +143,17 @@ public class SessionsDAO extends IndexSortTemplate implements OperationsDAO, Per
 
 	@Override
 	public Identifiable update(Identifiable session) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;	
 		
+		assert session !=null;
+		int updatedIndex = indexSort(this.sessionsData, session.getId());
+		if (updatedIndex >0) {
+			Session oldSession = (Session) this.sessionsData.get(updatedIndex - 1);
+			this.sessionsData.set(updatedIndex - 1, session);
+			this.dataStore();
+			return oldSession;
+		}
+		
+		throw new DataAccessException("SessionsDao.update: La simulación no existe...");
 	}
 
 	@Override
