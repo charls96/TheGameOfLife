@@ -182,7 +182,7 @@ public class MainController {
 	}
 
 	private void showDataSimulations() {
-		this.mainView.showMessage("Opción no disponible...");	
+		data.toStringDataSimulations();	
 	}
 
 	private void deleteSimulation() {
