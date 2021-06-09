@@ -14,6 +14,7 @@ import dataAccess.OperationsDAO;
 import dataAccess.memory.IndexSortTemplate;
 import entitys.Identifiable;
 import entitys.Simulation;
+import entitys.World;
 import jLife.Configuration;
 import utils.EasyDate;
 
@@ -130,13 +131,20 @@ public class SimulationsDAO extends IndexSortTemplate implements OperationsDAO, 
 	
 	@Override
 	public Identifiable delete(String id) throws DataAccessException  {
-		// TODO Auto-generated method stub
-		return null;				
+		int index = indexSort(this.simulationsData, id); 										// En base 1
+		if (index > 0) {	
+			Simulation  oldSimulation = (Simulation) this.simulationsData.remove(index - 1); 	// En base 0
+			this.dataStore();
+			return oldSimulation;
+		} 
+		else {
+			throw new DataAccessException("SimulationsDAO.delete: "+ id + " no existe");
+		}				
 	}
 
 	@Override
 	public Identifiable update(Identifiable simulation) throws DataAccessException {
-		
+		//A mitad
 		assert simulation != null;
 		
 		int updatedIndex = indexSort(this.simulationsData, simulation.getId());
