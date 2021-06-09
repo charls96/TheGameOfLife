@@ -14,6 +14,7 @@ import dataAccess.OperationsDAO;
 import dataAccess.memory.IndexSortTemplate;
 import entitys.Identifiable;
 import entitys.Session;
+import entitys.Simulation;
 import jLife.Configuration;
 import utils.EasyDate;
 
@@ -130,9 +131,15 @@ public class SessionsDAO extends IndexSortTemplate implements OperationsDAO, Per
 	
 	@Override
 	public Identifiable delete(String id) throws DataAccessException  {
-		// TODO Auto-generated method stub
-		return null;	
-			
+		int index = indexSort(this.sessionsData, id); 										// En base 1
+		if (index > 0) {	
+			Session  oldSession = (Session) this.sessionsData.remove(index - 1); 	// En base 0
+			this.dataStore();
+			return oldSession;
+		} 
+		else {
+			throw new DataAccessException("SessionsDAO.delete: "+ id + " no existe");
+		}			
 	}
 
 	@Override
@@ -144,8 +151,11 @@ public class SessionsDAO extends IndexSortTemplate implements OperationsDAO, Per
 
 	@Override
 	public String toStringData() {	
-		// TODO Auto-generated method stub
-		return null;
+		StringBuilder textData = new StringBuilder();
+		for (Identifiable session: this.findAll()) {
+			textData.append("\n" + session); 
+		}
+		return textData.toString();
 	}
 
 	@Override
