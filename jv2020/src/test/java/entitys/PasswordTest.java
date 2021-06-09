@@ -1,5 +1,6 @@
 package entitys;
 
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotSame;
@@ -68,7 +69,7 @@ class PasswordTest {
 		try {
 			passwordTest2.setText("rma8");
 		} catch (EntitysException | AssertionError e) {
-			assertEquals(passwordTest2.getText(), "Goe1iYixy");
+			assertNotEquals(passwordTest2.getText(), "Goe1iYixy");
 		}
 	}
 }
