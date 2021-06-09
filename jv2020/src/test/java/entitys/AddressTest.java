@@ -75,7 +75,8 @@ public class AddressTest {
 	
 	@Test
 	public void testSetLocation() {
-		// TODO Auto-generated method stub	
+		this.addressTest2.setLocation("Poblacion");
+		assertEquals(this.addressTest2.getLocation(), "Poblacion");	
 	}
 
 	@Test
