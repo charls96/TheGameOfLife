@@ -149,7 +149,8 @@ public class MainController {
 	}
 
 	private void modifyUser() {
-		this.mainView.showMessage("Opción no disponible...");
+		data.updateUser(session.getUser());
+		mainView.showMessage("El usuario ha sido modificado correctamente");
 	}
 
 	private void createNewUser() {
