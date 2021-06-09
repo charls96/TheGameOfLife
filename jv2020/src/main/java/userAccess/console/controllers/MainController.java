@@ -137,7 +137,8 @@ public class MainController {
 	}
 
 	private void modifySession() {
-		this.mainView.showMessage("Opción no disponible...");	
+		data.updateSession(session);
+		mainView.showMessage("Modificada la sesion " + session.getId());
 	}
 
 	private void showDataUsers() {
