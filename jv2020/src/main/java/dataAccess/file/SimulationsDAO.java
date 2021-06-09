@@ -136,8 +136,13 @@ public class SimulationsDAO extends IndexSortTemplate implements OperationsDAO, 
 
 	@Override
 	public Identifiable update(Identifiable simulation) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;		
+		
+		assert simulation != null;
+		
+		int updatedIndex = indexSort(this.simulationsData, simulation.getId());
+		
+		
+		throw new DataAccessException("SimulationsDao.update: La simulación no existe...");
 	}
 
 	@Override
