@@ -182,7 +182,7 @@ public class MainController {
 	}
 
 	private void showDataSimulations() {
-		data.toStringDataSimulations();	
+		mainView.showMessage(data.toStringDataSimulations());	
 	}
 
 	private void deleteSimulation() {
