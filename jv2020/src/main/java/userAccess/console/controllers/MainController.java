@@ -186,7 +186,8 @@ public class MainController {
 	}
 
 	private void deleteSimulation() {
-		data.deleteSimulation(session.getId());	
+		data.deleteSimulation(session.getId());
+		
 	}
 
 	private void modifySimulation() {
