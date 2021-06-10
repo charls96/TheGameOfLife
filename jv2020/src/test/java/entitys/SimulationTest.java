@@ -115,7 +115,7 @@ public class SimulationTest {
 	public void testSetDateNull() {
 		try {
 
-			simulacion2.setDate(null);
+			simulation2.setDate(null);
 
 			fail("No debe llegar aquí...");
 
