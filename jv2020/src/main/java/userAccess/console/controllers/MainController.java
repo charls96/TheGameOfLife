@@ -196,6 +196,7 @@ public class MainController {
 	private void modifySimulation() {
 		data.updateSimulation(data.findSimulation(simulation.getId()));
 		mainView.showMessage("La simulacion ha sido modificada correctamente");	
+		
 	}
 
 	private void createNewSimulation() {
