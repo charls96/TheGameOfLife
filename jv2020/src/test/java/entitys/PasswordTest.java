@@ -68,8 +68,8 @@ class PasswordTest {
 	public void testSetPasswordNotValid() {
 		try {
 			passwordTest2.setText("rma8");
+			fail("No debe llegar aqui...");
 		} catch (EntitysException | AssertionError e) {
-			assertNotEquals(passwordTest2.getText(), "Goe1iYixy");
 		}
 	}
 }
