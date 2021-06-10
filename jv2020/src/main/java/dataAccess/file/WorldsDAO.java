@@ -13,6 +13,7 @@ import dataAccess.DataAccessException;
 import dataAccess.OperationsDAO;
 import dataAccess.memory.IndexSortTemplate;
 import entitys.Identifiable;
+import entitys.Simulation;
 import entitys.World;
 import jLife.Configuration;
 
@@ -125,8 +126,17 @@ public class WorldsDAO extends IndexSortTemplate implements OperationsDAO, Persi
 
 	@Override
 	public Identifiable update(Identifiable world) throws DataAccessException {
-		// TODO
-		return null;	
+		
+		assert world != null;
+		int updatedIndex = indexSort(this.worldsData, world.getId());
+		if (updatedIndex >0) {
+			World oldWorld = (World) this.worldsData.get(updatedIndex - 1);
+			this.worldsData.set(updatedIndex - 1, world);
+			this.dataStore();
+			return oldWorld;
+		}
+		
+		throw new DataAccessException("SimulationsDao.update: La simulación no existe...");
 	}
 
 	@Override

@@ -128,7 +128,7 @@ public class MainController {
 	}
 
 	private void showDataSessions() {
-		this.mainView.showMessage("Opción no disponible...");	
+		mainView.showMessage(data.toStringDataSessions());	
 	}
 
 	private void deleteSession() {
@@ -137,7 +137,8 @@ public class MainController {
 	}
 
 	private void modifySession() {
-		this.mainView.showMessage("Opción no disponible...");	
+		data.updateSession(session);
+		mainView.showMessage("Modificada la sesion " + session.getId());
 	}
 
 	private void showDataUsers() {
@@ -149,7 +150,8 @@ public class MainController {
 	}
 
 	private void modifyUser() {
-		this.mainView.showMessage("Opción no disponible...");
+		data.updateUser(session.getUser());
+		mainView.showMessage("El usuario ha sido modificado correctamente");
 	}
 
 	private void createNewUser() {
@@ -182,7 +184,7 @@ public class MainController {
 	}
 
 	private void showDataSimulations() {
-		this.mainView.showMessage("Opción no disponible...");	
+		mainView.showMessage(data.toStringDataSimulations());	
 	}
 
 	private void deleteSimulation() {

@@ -125,8 +125,7 @@ public class SimulationsDAO extends IndexSortTemplate implements OperationsDAO, 
 
 	@Override
 	public Identifiable delete(Identifiable simulation) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		return this.delete(simulation.getId());
 	}
 	
 	@Override
@@ -144,11 +143,15 @@ public class SimulationsDAO extends IndexSortTemplate implements OperationsDAO, 
 
 	@Override
 	public Identifiable update(Identifiable simulation) throws DataAccessException {
-		//A mitad
+
 		assert simulation != null;
-		
 		int updatedIndex = indexSort(this.simulationsData, simulation.getId());
-		
+		if (updatedIndex >0) {
+			Simulation oldSimulation = (Simulation) this.simulationsData.get(updatedIndex - 1);
+			this.simulationsData.set(updatedIndex - 1, simulation);
+			this.dataStore();
+			return oldSimulation;
+		}
 		
 		throw new DataAccessException("SimulationsDao.update: La simulación no existe...");
 	}

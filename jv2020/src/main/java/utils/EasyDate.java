@@ -126,6 +126,14 @@ public class EasyDate implements Serializable {
 	public EasyDate minusMinutes(long minutes) {
 		return new EasyDate(this.localDateTime.minusMinutes(minutes));
 	}
+	
+	public EasyDate plusSeconds(long seconds) {
+		return new EasyDate(this.localDateTime.plusSeconds(seconds));
+	}
+
+	public EasyDate minusSeconds(long seconds) {
+		return new EasyDate(this.localDateTime.minusSeconds(seconds));
+	}
 
 	public String toStringTimeStamp() {
 		return String.format("%4d%02d%02d%02d%02d%02d", 
