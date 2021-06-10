@@ -88,7 +88,17 @@ public class SimulationTest {
 	
 	@Test
 	public void testSetUserNull() {
-		// TODO Auto-generated method stub
+		try {
+
+			simulation2.setUser(null);
+
+			fail("No debe llegar aquí...");
+
+		} 
+
+		catch (AssertionError e) { 
+
+		}
 	}
 
 	@Test
@@ -103,7 +113,17 @@ public class SimulationTest {
 
 	@Test
 	public void testSetDateNull() {
-		// TODO Auto-generated method stub
+		try {
+
+			simulacion2.setDate(null);
+
+			fail("No debe llegar aquí...");
+
+		} 
+
+		catch (AssertionError e) { 
+
+		}
 	}
 
 }
