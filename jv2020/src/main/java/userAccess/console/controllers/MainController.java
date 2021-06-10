@@ -159,7 +159,7 @@ public class MainController {
 	}
 
 	private void showDataWorlds() {
-		this.mainView.showMessage("Opción no disponible...");
+		mainView.showMessage(data.toStringDataWorlds());
 	}
 
 	private void deleteWorld() {
