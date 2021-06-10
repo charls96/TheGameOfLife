@@ -14,6 +14,7 @@ public class MainController {
 	private MainView mainView;
 	private Session session;
 	private DataFacade data;
+	private Simulation simulation;
 	
 	public MainController() {
 		this(null);
@@ -193,11 +194,12 @@ public class MainController {
 	}
 
 	private void modifySimulation() {
-		this.mainView.showMessage("Opción no disponible...");	
+		data.updateSimulation(data.findSimulation(simulation.getId()));
+		mainView.showMessage("La simulacion ha sido modificada correctamente");	
 	}
 
 	private void createNewSimulation() {
-		this.mainView.showMessage("Opción no disponible...");	
+		this.mainView.showMessage("Opción no disponible...");
 	}
 	
 }
