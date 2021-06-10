@@ -35,7 +35,7 @@ public class PersonTest {
     
     //Datos válidos
        @Test
-    void testSetNif() {
+     private void testSetNif() {
         Nif nif = new Nif("31701632L");
         personTest2.setNif(nif);
         assertEquals(personTest2.getNif(), nif);
@@ -52,7 +52,7 @@ public class PersonTest {
 		this.personTest2.setSurnames("García Rodríguez");
 		assertEquals(this.personTest2.getSurnames(), "García Rodríguez");
 	}
-        @Test
+         @Test
     void testSetAddress() {
         Address address = new Address("Calle Java", "Nº 1", "30001", "Murcia");
         personTest2.setAddress(address);
