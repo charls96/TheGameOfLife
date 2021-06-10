@@ -46,5 +46,11 @@ public class PersonTest {
         this.personTest2.setName("Luis");
         assertEquals(this.personTest2.getName(), "Luis");
     }
+   
+   @Test
+	void testSetSurnames() {	
+		this.personTest2.setSurnames("García Rodríguez");
+		assertEquals(this.personTest2.getSurnames(), "García Rodríguez");
+	}
 }
    
