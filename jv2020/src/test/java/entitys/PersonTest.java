@@ -52,5 +52,11 @@ public class PersonTest {
 		this.personTest2.setSurnames("García Rodríguez");
 		assertEquals(this.personTest2.getSurnames(), "García Rodríguez");
 	}
+         @Test
+    void testSetAddress() {
+        Address address = new Address("Calle Java", "Nº 1", "30001", "Murcia");
+        personTest2.setAddress(address);
+        assertEquals(this.personTest2.getAddress(), address);
+    }
 }
    
