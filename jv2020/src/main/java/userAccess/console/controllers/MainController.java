@@ -6,6 +6,7 @@ import dataAccess.DataFacade;
 import entitys.Identifiable;
 import entitys.Session;
 import entitys.Simulation;
+import jLife.Configuration;
 import userAccess.console.views.MainView;
 import utils.EasyDate;
 
@@ -176,6 +177,9 @@ public class MainController {
 	}
 
 	private void RunSimulationDemo() {
+		Simulation simulationDemo = new Simulation();
+		simulationDemo.setSimulationCicles(
+				Integer.parseInt(Configuration.get().getProperty("simulation.defaultCicles")));
 		new SimulationRunController(new Simulation());
 	}
 
@@ -196,6 +200,7 @@ public class MainController {
 	private void modifySimulation() {
 		data.updateSimulation(data.findSimulation(simulation.getId()));
 		mainView.showMessage("La simulacion ha sido modificada correctamente");	
+		
 	}
 
 	private void createNewSimulation() {
