@@ -169,7 +169,8 @@ public class MainController {
 	}
 
 	private void modifyWorld() {
-		this.mainView.showMessage("Opción no disponible...");
+		data.updateWorld(session.getWorld());
+		mainView.showMessage("El mundo ha sido modificado correctamente");
 	}
 
 	private void createNewWorld() {
