@@ -3,6 +3,7 @@ package entitys;
 import java.util.LinkedList;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
 
 public class WorldTest {
 
@@ -26,5 +27,10 @@ public class WorldTest {
     public void initializeTestData() {
 		world2 = new World();
     }
+	
+	@AfterEach
+	void clearTestData() {
+	    this.world2 = null;
+	}
 	
 }
