@@ -14,6 +14,7 @@ import dataAccess.OperationsDAO;
 import dataAccess.memory.IndexSortTemplate;
 import entitys.Identifiable;
 import entitys.Session;
+import entitys.Simulation;
 import jLife.Configuration;
 import utils.EasyDate;
 
@@ -124,28 +125,44 @@ public class SessionsDAO extends IndexSortTemplate implements OperationsDAO, Per
 
 	@Override
 	public Identifiable delete(Identifiable session) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		return this.delete(session.getId());
 	}
 	
 	@Override
 	public Identifiable delete(String id) throws DataAccessException  {
-		// TODO Auto-generated method stub
-		return null;	
-			
+		int index = indexSort(this.sessionsData, id); 										// En base 1
+		if (index > 0) {	
+			Session  oldSession = (Session) this.sessionsData.remove(index - 1); 	// En base 0
+			this.dataStore();
+			return oldSession;
+		} 
+		else {
+			throw new DataAccessException("SessionsDAO.delete: "+ id + " no existe");
+		}			
 	}
 
 	@Override
 	public Identifiable update(Identifiable session) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;	
 		
+		assert session !=null;
+		int updatedIndex = indexSort(this.sessionsData, session.getId());
+		if (updatedIndex >0) {
+			Session oldSession = (Session) this.sessionsData.get(updatedIndex - 1);
+			this.sessionsData.set(updatedIndex - 1, session);
+			this.dataStore();
+			return oldSession;
+		}
+		
+		throw new DataAccessException("SessionsDao.update: La simulación no existe...");
 	}
 
 	@Override
 	public String toStringData() {	
-		// TODO Auto-generated method stub
-		return null;
+		StringBuilder textData = new StringBuilder();
+		for (Identifiable session: this.findAll()) {
+			textData.append("\n" + session); 
+		}
+		return textData.toString();
 	}
 
 	@Override

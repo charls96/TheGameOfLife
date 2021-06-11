@@ -8,13 +8,14 @@ import jLife.Configuration;
 
 public class Password implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	private String text;
 
-	public Password(String text) {
+	public Password(String text) throws EntitysException {
 		this.setText(text);
 	}
 
-	public Password() {
+	public Password() throws EntitysException {
 		this.setText(Configuration.get().getProperty("password.default"));
 	}
 
@@ -26,7 +27,7 @@ public class Password implements Serializable {
 		return text;
 	}
 
-	public void setText(String text) {
+	public void setText(String text) throws EntitysException {
 		assert text != null;
 		if (isValidPassword(text)) {
 			this.text = Cryptography.cesar(text);

@@ -6,6 +6,7 @@ import dataAccess.DataFacade;
 import entitys.Identifiable;
 import entitys.Session;
 import entitys.Simulation;
+import jLife.Configuration;
 import userAccess.console.views.MainView;
 import utils.EasyDate;
 
@@ -14,6 +15,7 @@ public class MainController {
 	private MainView mainView;
 	private Session session;
 	private DataFacade data;
+	private Simulation simulation;
 	
 	public MainController() {
 		this(null);
@@ -128,7 +130,7 @@ public class MainController {
 	}
 
 	private void showDataSessions() {
-		this.mainView.showMessage("Opción no disponible...");	
+		mainView.showMessage(data.toStringDataSessions());	
 	}
 
 	private void deleteSession() {
@@ -137,7 +139,8 @@ public class MainController {
 	}
 
 	private void modifySession() {
-		this.mainView.showMessage("Opción no disponible...");	
+		data.updateSession(session);
+		mainView.showMessage("Modificada la sesion " + session.getId());
 	}
 
 	private void showDataUsers() {
@@ -149,7 +152,8 @@ public class MainController {
 	}
 
 	private void modifyUser() {
-		this.mainView.showMessage("Opción no disponible...");
+		data.updateUser(session.getUser());
+		mainView.showMessage("El usuario ha sido modificado correctamente");
 	}
 
 	private void createNewUser() {
@@ -157,7 +161,7 @@ public class MainController {
 	}
 
 	private void showDataWorlds() {
-		this.mainView.showMessage("Opción no disponible...");
+		mainView.showMessage(data.toStringDataWorlds());
 	}
 
 	private void deleteWorld() {
@@ -173,6 +177,9 @@ public class MainController {
 	}
 
 	private void RunSimulationDemo() {
+		Simulation simulationDemo = new Simulation();
+		simulationDemo.setSimulationCicles(
+				Integer.parseInt(Configuration.get().getProperty("simulation.defaultCicles")));
 		new SimulationRunController(new Simulation());
 	}
 
@@ -182,19 +189,22 @@ public class MainController {
 	}
 
 	private void showDataSimulations() {
-		this.mainView.showMessage("Opción no disponible...");	
+		mainView.showMessage(data.toStringDataSimulations());	
 	}
 
 	private void deleteSimulation() {
-		this.mainView.showMessage("Opción no disponible...");	
+		data.deleteSimulation(session.getId());
+		
 	}
 
 	private void modifySimulation() {
-		this.mainView.showMessage("Opción no disponible...");	
+		data.updateSimulation(data.findSimulation(simulation.getId()));
+		mainView.showMessage("La simulacion ha sido modificada correctamente");	
+		
 	}
 
 	private void createNewSimulation() {
-		this.mainView.showMessage("Opción no disponible...");	
+		this.mainView.showMessage("Opción no disponible...");
 	}
 	
 }

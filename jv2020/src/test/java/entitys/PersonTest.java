@@ -2,7 +2,8 @@ package entitys;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 import utils.EasyDate;
 
 public class PersonTest {
@@ -23,8 +24,7 @@ public class PersonTest {
         Password password = new Password("abcdefgh");
         personTest1 = new User(nif, "Luis", "García Rodríguez", address, mail, birthDate,
                 registeredDate, password, User.RoleUser.REGISTERED);
-    }
-     
+    } 
      /**
      * Método que se ejecuta antes de cada test.
      */
@@ -32,4 +32,31 @@ public class PersonTest {
     void clearTestData() {
         personTest2 = new User();
     }
+    
+    //Datos válidos
+       @Test
+     private void testSetNif() {
+        Nif nif = new Nif("31701632L");
+        personTest2.setNif(nif);
+        assertEquals(personTest2.getNif(), nif);
+    }
+
+    @Test
+    void testSetName() {
+        this.personTest2.setName("Luis");
+        assertEquals(this.personTest2.getName(), "Luis");
+    }
+   
+   @Test
+	void testSetSurnames() {	
+		this.personTest2.setSurnames("García Rodríguez");
+		assertEquals(this.personTest2.getSurnames(), "García Rodríguez");
+	}
+         @Test
+    void testSetAddress() {
+        Address address = new Address("Calle Java", "Nº 1", "30001", "Murcia");
+        personTest2.setAddress(address);
+        assertEquals(this.personTest2.getAddress(), address);
+    }
 }
+   

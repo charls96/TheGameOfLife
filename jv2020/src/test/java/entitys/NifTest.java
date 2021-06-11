@@ -67,5 +67,17 @@ public class NifTest {
 		assertTrue(nifTest1.equals(nifTest1.clone()));
 	}
 	
+	// Test's CON DATOS NO VALIDOS
+
+	@Test
+	public void testSetTextNull() {
+		try {
+			this.nifTest2.setText(null);
+			fail("No debe llegar aquí...");
+		} 
+		catch (AssertionError e) { 
+		}
+	}
+	
 	
 } 
