@@ -2,11 +2,19 @@ package userAccess.console.controllers;
 
 import entitys.Simulation;
 import userAccess.console.views.SimulationRunView;
+import dataAccess.Data;
+import entitys.World;
+import entitys.Simulation;
+import jLife.Configuration;
+
 
 public class SimulationRunController {
-	
+	private final Integer simulationCicles = Integer
+			.parseInt(Configuration.get().getProperty("simulation.defaultCicles"));
 	private SimulationRunView simulationRunView;
 	private Simulation simulation;
+	private World world;
+	private Data data;
 	
 	public SimulationRunController(Simulation simulation) {	
 		this.initSimulationRunControler(simulation);
@@ -22,6 +30,9 @@ public class SimulationRunController {
 	private void runSimulation() {
 		this.simulation.getWorld().run(simulation.getSimulationCicles());
 	}
+	public Integer getsimulationCicles() {
+		return this.simulationCicles;
+	}
 	
 	public SimulationRunView getSimulationRunView() {
 		return this.simulationRunView;
@@ -29,6 +40,12 @@ public class SimulationRunController {
 
 	public Simulation getSimulation() {	
 		return this.simulation;
+	}
+	public World getWorld() {
+		return this.world;
+	}
+	public Data getData() {
+		return this.data;
 	}
 	
 }
