@@ -164,8 +164,8 @@ public class MainController {
 		mainView.showMessage(data.toStringDataWorlds());
 	}
 
-	private void deleteWorld() {
-		this.mainView.showMessage("Opción no disponible...");  
+	pivrate void deleteWorld() {	
+		data.deleteWorld(session.getWorld().getId());  
 	}
 
 	private void modifyWorld() {
