@@ -74,7 +74,7 @@ public class SimulationTest {
 
 	@Test
 	void testClone() {	
-		// TODO Auto-generated method stub	
+		assertNotSame(simulationTest1, simulationTest1.clone());
 	}
 	
 	
