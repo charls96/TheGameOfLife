@@ -123,7 +123,7 @@ class UserTest {
 
 	@Test
 	void testEqualsObject() {
-		// TODO Auto-generated method stub
+		assertTrue(userTest1.equals(userTest1.clone()));
 	}
 
 	@Test
