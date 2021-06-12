@@ -71,8 +71,9 @@ class SessionsDAOTest {
 	
 	@Test
 	void testFindAll() {
-		// TODO
-		fail("Test sin implementar.");
+		data.createSession(this.sessionTest);
+		assertEquals(data.findAllSessions().size(), 1);
+		data.deleteSession(this.sessionTest);
 	}
 
 	@Test
