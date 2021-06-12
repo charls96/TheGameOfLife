@@ -3,8 +3,13 @@ package entitys;
 import java.util.LinkedList;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import entitys.World.GridType;
+
 import org.junit.jupiter.api.AfterEach;
 import static org.junit.Assert.assertEquals;
+
 
 public class WorldTest {
 
@@ -39,4 +44,10 @@ public class WorldTest {
         world2.setName("World");
         assertEquals(world2.getName(), "World");
     }
+	
+	@Test
+	public void testSetGridType() {
+		world2.setGridType(World.GridType.EDGES);
+		assertEquals(world2.getGridType(), GridType.EDGES);
+	}
 }
