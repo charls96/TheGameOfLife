@@ -31,10 +31,10 @@ import utils.Regex;
 public class SessionsDAO implements OperationsDAO {
 
 	private Connection db;
-	private Statement sessionsStatement;					// Para la ejecución de consultas SQL.
+	private Statement sessionsStatement;					// Para la ejecuciÃ³n de consultas SQL.
 	private ResultSet sessionsResulSet;						// Para manejar el resutado de la consulta.
 	private DefaultTableModel sessionsTableModel; 			// Tabla-modelo del resultado de la consulta.
-	private ArrayList<Identifiable> sessionsBuffer; 		// Versión en forma de objetos del TableModel.
+	private ArrayList<Identifiable> sessionsBuffer; 		// VersiÃ³n en forma de objetos del TableModel.
 
 	
 	// Singleton
@@ -147,7 +147,7 @@ public class SessionsDAO implements OperationsDAO {
 			// Obtiene metadatos.
 			ResultSetMetaData metaData = this.sessionsResulSet.getMetaData();
 
-			// Número total de columnas.
+			// NÃºmero total de columnas.
 			int numCol = metaData.getColumnCount();
 
 			// Etiqueta de cada columna.
@@ -178,7 +178,7 @@ public class SessionsDAO implements OperationsDAO {
 		// Para cada fila en el ResultSet de la consulta.
 		try {
 			while (sessionsResulSet.next()) {
-				// Se replica y añade la fila en el TableModel.
+				// Se replica y aÃ±ade la fila en el TableModel.
 				for (int i = 0; i < this.sessionsTableModel.getColumnCount(); i++) {
 					rowData[i] = this.sessionsResulSet.getObject(i + 1);
 				}
