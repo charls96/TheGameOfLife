@@ -3,8 +3,13 @@ package entitys;
 import java.util.LinkedList;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import entitys.World.GridType;
+
 import org.junit.jupiter.api.AfterEach;
 import static org.junit.Assert.assertEquals;
+
 
 public class WorldTest {
 
@@ -23,23 +28,23 @@ public class WorldTest {
 		}
 
 	}
-
+	
 	@BeforeEach
-	public void initializeTestData() {
+    public void initializeTestData() {
 		world2 = new World();
-	}
-
+    }
+	
 	@AfterEach
 	void clearTestData() {
-		this.world2 = null;
+	    this.world2 = null;
 	}
-
+	
 	@Test
-	public void testSetName() {
-		world2.setName("World");
-		assertEquals(world2.getName(), "World");
-	}
-
+    public void testSetName() {
+        world2.setName("World");
+        assertEquals(world2.getName(), "World");
+    }
+	
 	@Test
 	public void testSetGridType() {
 		world2.setGridType(World.GridType.EDGES);
