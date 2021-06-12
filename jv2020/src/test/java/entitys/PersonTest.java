@@ -58,5 +58,13 @@ public class PersonTest {
         personTest2.setAddress(address);
         assertEquals(this.personTest2.getAddress(), address);
     }
+
+	@Test
+	void testSetMail() {
+		Mail mail = new Mail("luisgarcia@gmail.com");
+		personTest2.setMail(mail);
+		assertEquals(personTest2.getMail(), mail);
+	}
+	
 }
    
