@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterEach;
+import static org.junit.Assert.assertEquals;
 
 public class WorldTest {
 
@@ -33,4 +34,9 @@ public class WorldTest {
 	    this.world2 = null;
 	}
 	
+	@Test
+    public void testSetName() {
+        world2.setName("World");
+        assertEquals(world2.getName(), "World");
+    }
 }
