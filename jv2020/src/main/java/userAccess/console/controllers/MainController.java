@@ -165,11 +165,12 @@ public class MainController {
 	}
 
 	pivrate void deleteWorld() {	
-		data.deleteWorld(session.getWorld().getId());
+		this.mainView.showMessage("Opción no disponible...");
 	}
 
 	private void modifyWorld() {
-		this.mainView.showMessage("Opción no disponible...");
+		data.updateWorld(session.getWorld());
+		mainView.showMessage("El mundo ha sido modificado correctamente");
 	}
 
 	private void createNewWorld() {
