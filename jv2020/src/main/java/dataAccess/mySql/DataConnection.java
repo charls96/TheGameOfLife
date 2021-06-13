@@ -23,8 +23,8 @@ public class DataConnection {
 	}
 	
 	private DataConnection() {
-		this.url = Configuration.get().getProperty("mySql.url");
-		//this.url = Configuration.get().getProperty("mySql.localhost");
+		//this.url = Configuration.get().getProperty("mySql.url");
+		this.url = Configuration.get().getProperty("mySql.localhost");
 		this.user = Configuration.get().getProperty("mySql.user");
 		this.password = Configuration.get().getProperty("mySql.passwd");
 		initDataConnection();
@@ -36,7 +36,7 @@ public class DataConnection {
 			Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
 			DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
 			
-			// Establece la conexión con la BD utilizando el driver.
+			// Establece la conexiÃ³n con la BD utilizando el driver.
 			String zonaHoraria = "useTimezone=true&serverTimezone=UTC";
 			db = DriverManager.getConnection(this.url+zonaHoraria, this.user, this.password);
 		} 
