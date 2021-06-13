@@ -33,10 +33,10 @@ public class DataConnection {
 	private void initDataConnection()  {
 		try {		
 			// Activa el driver.
-			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+			Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
 			DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
 			
-			// Establece la conexiÃ³n con la BD utilizando el driver.
+			// Establece la conexión con la BD utilizando el driver.
 			String zonaHoraria = "useTimezone=true&serverTimezone=UTC";
 			db = DriverManager.getConnection(this.url+zonaHoraria, this.user, this.password);
 		} 

@@ -53,8 +53,14 @@ public class WorldsDAO extends IndexSortTemplate implements OperationsDAO {
 
 	@Override
 	public Identifiable delete(String id) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		assert id != null;
+		int insertionPos = indexSort(this.worldsData, id); 
+		
+		if (insertionPos > 0) {
+			return (World) worldsData.remove(insertionPos -1);
+		}
+		
+		throw new DataAccessException("worldsData.delete: "+ id + " no existe");	
 	}
 
 	@Override
