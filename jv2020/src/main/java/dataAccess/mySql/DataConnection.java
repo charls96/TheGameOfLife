@@ -23,8 +23,8 @@ public class DataConnection {
 	}
 	
 	private DataConnection() {
-		this.url = Configuration.get().getProperty("mySql.url");
-		//this.url = Configuration.get().getProperty("mySql.localhost");
+		//this.url = Configuration.get().getProperty("mySql.url");
+		this.url = Configuration.get().getProperty("mySql.localhost");
 		this.user = Configuration.get().getProperty("mySql.user");
 		this.password = Configuration.get().getProperty("mySql.passwd");
 		initDataConnection();
@@ -33,7 +33,7 @@ public class DataConnection {
 	private void initDataConnection()  {
 		try {		
 			// Activa el driver.
-			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+			Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
 			DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
 			
 			// Establece la conexión con la BD utilizando el driver.

@@ -83,7 +83,11 @@ public class MailTest {
 
 	@Test
 	public void testSetTextNull() {
-		// TODO Auto-generated method stub
+	try {
+		mailTest2.setText(null);
+			fail("No debe llegar aquí...");
+	}
+		catch (EntitysException e) {		
 	}
 
 } 
