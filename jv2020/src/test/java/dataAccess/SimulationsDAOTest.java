@@ -65,8 +65,9 @@ class SimulationsDAOTest {
 	
 	@Test
 	void testFind() {	
-		// TODO
-		fail("Test sin implementar.");
+		data.createSimulation(this.simulationTest);
+		assertEquals(data.findSimulations(this.simulationTest), this.simulationTest);
+		data.deleteSimulation(this.simulationTest);
 	}
 	
 	@Test
