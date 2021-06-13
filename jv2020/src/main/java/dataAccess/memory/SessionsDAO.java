@@ -76,8 +76,11 @@ public class SessionsDAO extends IndexSortTemplate implements OperationsDAO {
 
 	@Override
 	public String toStringData() {
-		// TODO Auto-generated method stub
-		return null;
+		StringBuilder textData = new StringBuilder();
+		for (Identifiable session: this.findAll()) {
+			textData.append("\n" + session); 
+		}
+		return textData.toString();
 	}
 
 	@Override
