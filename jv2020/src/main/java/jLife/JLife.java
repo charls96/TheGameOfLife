@@ -1,16 +1,16 @@
 package jLife;
 
-import userAccess.console.controllers.MainController;
+import userAccess.jSwing.controllers.MainController;
 
 public class JLife {
 
 	public static void main(String[] args) {		
 		if (args.length > 0) {
 			String userIdCommandLine = args[0];
-			new MainController(userIdCommandLine);
+			new userAccess.console.controllers.MainController(userIdCommandLine);
 			return;
 		}
-		new MainController();
+		new userAccess.jSwing.controllers.MainController();
 	}
 
 }
