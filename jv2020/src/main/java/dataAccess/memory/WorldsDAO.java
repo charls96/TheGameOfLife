@@ -64,15 +64,22 @@ public class WorldsDAO extends IndexSortTemplate implements OperationsDAO {
 	}
 
 	@Override
-	public Identifiable delete(Identifiable obj) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+	public Identifiable delete(Identifiable world) throws DataAccessException {
+		return delete(world.getId());
 	}
 
 	@Override
-	public Identifiable update(Identifiable obj) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+	public Identifiable update(Identifiable world) throws DataAccessException {
+		assert world != null;
+		World updatedWorld = (World) world;
+		int insertionPos = indexSort(this.worldsData, updatedWorld.getId());
+		if (insertionPos > 0) {
+			worldsData.set(insertionPos-1, updatedWorld);
+		}
+		else {
+			throw new DataAccessException("worldsData.update: "+ updatedWorld.getId() + " no existe");
+		}
+		return updatedWorld;
 	}
 
 	@Override
