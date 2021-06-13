@@ -60,7 +60,8 @@ class SessionTest {
 
 	@Test
 	public void testSetEndTime() {
-		// TODO Auto-generated method stub	
+		this.sessionTest2.setEndTime(userTest);
+		assertEquals(this.sessionTest2.getUser(), userTest);
 	}
 
 	@Test
