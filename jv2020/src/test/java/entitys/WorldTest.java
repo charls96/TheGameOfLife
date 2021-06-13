@@ -9,6 +9,8 @@ import entitys.World.GridType;
 
 import org.junit.jupiter.api.AfterEach;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 
 public class WorldTest {
@@ -50,4 +52,16 @@ public class WorldTest {
 		world2.setGridType(World.GridType.EDGES);
 		assertEquals(world2.getGridType(), GridType.EDGES);
 	}
+	
+	@Test
+	public void testSetNameblank() {
+		try {
+			world2.setName("  ");
+			fail("No debe llegar aqui...");
+		}
+		catch (EntitysException e) {
+			assertTrue(world2.getName() != null);			
+		}
+	}
+	
 }
