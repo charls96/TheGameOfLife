@@ -65,6 +65,13 @@ public class PersonTest {
 		personTest2.setMail(mail);
 		assertEquals(personTest2.getMail(), mail);
 	}
-	
+
+	@Test
+	void testSetBirthDate() {
+		EasyDate birthDate = new EasyDate(1990, 1, 1);
+		personTest2.setBirthDate(birthDate);
+		assertEquals(personTest2.getBirthDate(), birthDate);
+	}
+
 }
    
