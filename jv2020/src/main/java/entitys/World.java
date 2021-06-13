@@ -22,7 +22,7 @@ public class World implements Identifiable, Serializable {
 	public World() {
 		this("Demo", distributionDemo());	
 	}
-	
+
 	public World(String name, List<Coordinate> distribution) {
 		this.setName(name);
 		this.setDistribution(distribution);
@@ -38,17 +38,17 @@ public class World implements Identifiable, Serializable {
 		this.constants = cloneConstans(world);
 		this.gridType = world.gridType;
 	}
-	
+
 	private void genetateGrid() {
 		assert distribution != null;
 		Coordinate MaxCoordinate = getMaxCoordinate();
 		grid = new byte[MaxCoordinate.getY()+10][MaxCoordinate.getX()+10];
-		
+
 		for (Coordinate coordinate : distribution) {
 			grid[coordinate.getY()][coordinate.getX()] = 1;
 		}
 	}
-	
+
 	private Coordinate getMaxCoordinate() {
 		Coordinate MaxCoordinate = new Coordinate(0, 0);
 		for (Coordinate coordinate : distribution) {
@@ -58,7 +58,7 @@ public class World implements Identifiable, Serializable {
 		}
 		return MaxCoordinate;
 	}
-	
+
 	private void applyStandardLaws() {
 		this.constants = new HashMap<String,int[]>();
 		this.constants.put("constantSurvive",new int[] {2, 3});
@@ -81,7 +81,7 @@ public class World implements Identifiable, Serializable {
 		}
 		return clon;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -89,7 +89,7 @@ public class World implements Identifiable, Serializable {
 	public byte[][] getGrid() {
 		return this.grid;
 	}
-	
+
 	public List<Coordinate> getDistribution() {
 		return distribution;
 	}
@@ -97,36 +97,37 @@ public class World implements Identifiable, Serializable {
 	public GridType getGridType() {
 		return this.gridType;
 	}
-	
+
 	public Map<String,int[]> getConstants() {
 		return this.constants;
 	}
-	
+
 	public void setName(String name) {
 		assert name != null;
 		this.name = name;
 	}
-	
+
 	public void setDistribution(List<Coordinate> distribution) {
+		assert distribution != null;
 		this.distribution = distribution;
 	}
-	
+
 	public void setGridType(GridType gridType) {
 		assert gridType != null;
 		this.gridType = gridType;
 	}
 
-	public void setConstants(Map<String, int[]> constants) {
-		assert constants != null;
-		this.constants = constants;	
+	public void setConstants(Map<String,int[]> constans) {
+		assert constans != null;
+		this.constants = constans;
 	}
 
 	@Override
 	public String getId() {
 		return this.name;
 	}
-	
-	public int run(int simulationCicles) {
+
+	public int run(int cyclesRun) {
 		int generation = 0; 
 		do {
 			System.out.println("\nGeneración: " + generation);
@@ -134,46 +135,42 @@ public class World implements Identifiable, Serializable {
 			this.updateGrid();
 			generation++;
 		}
-		while (generation < simulationCicles);
+		while (generation < cyclesRun);
 		return generation;
 	}
 
-	/**
-	 * Distribución demo, como lista de celdas a 1. 
-	 */
 	static private List<Coordinate> distributionDemo() {
-		List<Coordinate> distributionDemo = new ArrayList<Coordinate>();
-		distributionDemo.add(new Coordinate(2,5));
-		distributionDemo.add(new Coordinate(3,4));
-		distributionDemo.add(new Coordinate(3,6));
-		distributionDemo.add(new Coordinate(4,7));
-		distributionDemo.add(new Coordinate(4,12));
-		distributionDemo.add(new Coordinate(4,13));
-		distributionDemo.add(new Coordinate(4,14));
-		distributionDemo.add(new Coordinate(5,5));
-		distributionDemo.add(new Coordinate(5,6));
-		distributionDemo.add(new Coordinate(5,7));
-		distributionDemo.add(new Coordinate(8,9));
-		distributionDemo.add(new Coordinate(8,10));
-		distributionDemo.add(new Coordinate(8,11));
-		distributionDemo.add(new Coordinate(9,9));
-		distributionDemo.add(new Coordinate(9,11));
-		distributionDemo.add(new Coordinate(10,9));
-		distributionDemo.add(new Coordinate(10,10));
-		distributionDemo.add(new Coordinate(10,11));
-		distributionDemo.add(new Coordinate(11,5));
-		distributionDemo.add(new Coordinate(11,6));
-		distributionDemo.add(new Coordinate(12,5));
-		distributionDemo.add(new Coordinate(12,6));
-		return distributionDemo;
+		List<Coordinate> demo = new ArrayList<Coordinate>();
+		demo.add(new Coordinate(2,5));
+		demo.add(new Coordinate(3,4));
+		demo.add(new Coordinate(3,6));
+		demo.add(new Coordinate(4,7));
+		demo.add(new Coordinate(4,12));
+		demo.add(new Coordinate(4,13));
+		demo.add(new Coordinate(4,14));
+		demo.add(new Coordinate(5,5));
+		demo.add(new Coordinate(5,6));
+		demo.add(new Coordinate(5,7));
+		demo.add(new Coordinate(8,9));
+		demo.add(new Coordinate(8,10));
+		demo.add(new Coordinate(8,11));
+		demo.add(new Coordinate(9,9));
+		demo.add(new Coordinate(9,11));
+		demo.add(new Coordinate(10,9));
+		demo.add(new Coordinate(10,10));
+		demo.add(new Coordinate(10,11));
+		demo.add(new Coordinate(11,5));
+		demo.add(new Coordinate(11,6));
+		demo.add(new Coordinate(12,5));
+		demo.add(new Coordinate(12,6));
+		return demo;
 	}
-	
 
 	/**
 	 * Despliega en la consola el estado almacenado, corresponde
 	 * a una generación del Juego de la vida.
 	 */
-	public void showGrid() {
+	private void showGrid() {
 
 		for (int i = 0; i < this.grid.length; i++) {
 			for (int j = 0; j < this.grid.length; j++) {		
@@ -187,7 +184,7 @@ public class World implements Identifiable, Serializable {
 	 * Actualiza el estado del Juego de la Vida.
 	 * Actualiza según la configuración establecida para la forma del espacio.
 	 */
-	private void updateGrid() {
+	public void updateGrid() {
 		if (gridType == GridType.EDGES) {
 			this.updateGridEdges();
 		}
@@ -311,5 +308,5 @@ public class World implements Identifiable, Serializable {
 		return 0;
 	}
 
-	
+
 }
