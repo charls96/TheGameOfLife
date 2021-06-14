@@ -95,7 +95,7 @@ public class SessionsDAO extends IndexSortTemplate implements OperationsDAO {
 
 	@Override
 	public void deleteAll() {
-		// TODO Auto-generated method stub
+		sessionsData.clear();
 		
 	}
 
