@@ -131,6 +131,11 @@ public class SessionsDAO implements OperationsDAO {
 			this.db.delete(session);
 		}	
 	}
+	
+	@Override
+	public Identifiable delete(Identifiable session) throws DataAccessException {
+		return this.delete(session.getId());
+	}
 
 	public void close() {
 		this.db.close();	
