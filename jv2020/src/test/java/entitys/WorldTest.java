@@ -64,4 +64,15 @@ public class WorldTest {
 		}
 	}
 	
+	@Test
+    public void testSetNameNull() {
+        try {
+            world2.setName(null);
+            fail("No debe llegar aqui...");
+        } 
+        catch (AssertionError | EntitysException e) { 
+            assertTrue(world2.getName() != null);
+        }
+    }
+	
 }
