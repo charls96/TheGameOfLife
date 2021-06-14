@@ -83,10 +83,13 @@ public class WorldsDAO extends IndexSortTemplate implements OperationsDAO {
 	}
 
 	@Override
-	public String toStringData() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public String toStringData() {
+        StringBuilder dataString = new StringBuilder();
+        for (Identifiable world: worldsData) {
+            dataString.append("\n" + world); 
+        }
+        return dataString.toString();
+    }
 
 	@Override
 	public String toStringIds() {
