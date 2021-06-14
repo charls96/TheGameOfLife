@@ -3,9 +3,9 @@ package userAccess.console.controllers;
 import java.util.List;
 
 import dataAccess.DataFacade;
-import entitys.Identifiable;
-import entitys.Session;
-import entitys.Simulation;
+import entityes.Identifiable;
+import entityes.Session;
+import entityes.Simulation;
 import jLife.Configuration;
 import userAccess.console.views.MainView;
 import utils.EasyDate;
@@ -169,8 +169,7 @@ public class MainController {
 	}
 
 	private void modifyWorld() {
-		data.updateWorld(session.getWorld());
-		mainView.showMessage("El mundo ha sido modificado correctamente");
+		this.mainView.showMessage("Opción no disponible...");
 	}
 
 	private void createNewWorld() {
@@ -179,7 +178,7 @@ public class MainController {
 
 	private void RunSimulationDemo() {
 		Simulation simulationDemo = new Simulation();
-		simulationDemo.setSimulationCicles(
+		simulationDemo.setSimulationCycles(
 				Integer.parseInt(Configuration.get().getProperty("simulation.defaultCicles")));
 		new SimulationRunController(new Simulation());
 	}

@@ -6,8 +6,8 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 import dataAccess.DataFacade;
-import entitys.Session;
-import entitys.Simulation;
+import entityes.Session;
+import entityes.Simulation;
 import jLife.Configuration;
 import userAccess.jSwing.controllers.SimulationRunController;
 import userAccess.jSwing.views.MainView;
@@ -177,7 +177,7 @@ public class MainController implements ActionListener, WindowListener {
 
 	private void runSimulationDemo() {
 		Simulation simulationDemo = new Simulation();
-		simulationDemo.setSimulationCicles(Integer.parseInt((Configuration.get().getProperty("simulation.defaultCicles"))));
+		simulationDemo.setSimulationCycles(Integer.parseInt((Configuration.get().getProperty("simulation.defaultCycles"))));
 		new SimulationRunController(simulationDemo);
 	}
 

@@ -5,8 +5,8 @@ import java.util.List;
 
 import dataAccess.DataAccessException;
 import dataAccess.OperationsDAO;
-import entitys.Identifiable;
-import entitys.World;
+import entityes.Identifiable;
+import entityes.World;
 
 public class WorldsDAO extends IndexSortTemplate implements OperationsDAO {
 
@@ -84,8 +84,11 @@ public class WorldsDAO extends IndexSortTemplate implements OperationsDAO {
 
 	@Override
 	public String toStringData() {
-		// TODO Auto-generated method stub
-		return null;
+		 StringBuilder dataString = new StringBuilder();
+	        for (Identifiable world: worldsData) {
+	            dataString.append("\n" + world); 
+	        }
+	        return dataString.toString();
 	}
 
 	@Override

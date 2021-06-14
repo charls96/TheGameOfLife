@@ -8,9 +8,9 @@ import java.awt.event.MouseListener;
 
 import dataAccess.DataAccessException;
 import dataAccess.DataFacade;
-import entitys.Password;
-import entitys.Session;
-import entitys.User;
+import entityes.Password;
+import entityes.Session;
+import entityes.User;
 import jLife.Configuration;
 import userAccess.jSwing.views.LoginView;
 import utils.Cryptography;

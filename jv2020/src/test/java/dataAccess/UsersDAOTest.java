@@ -13,13 +13,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import dataAccess.db4o.UsersDAO;
-import entitys.Address;
-import entitys.Mail;
-import entitys.Nif;
-import entitys.Password;
-import entitys.Simulation;
-import entitys.User;
-import entitys.User.RoleUser;
+import entityes.Address;
+import entityes.Mail;
+import entityes.Nif;
+import entityes.Password;
+import entityes.Simulation;
+import entityes.User;
+import entityes.User.RoleUser;
 import utils.EasyDate;
 
 class UsersDAOTest {

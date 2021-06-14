@@ -1,4 +1,4 @@
-package entitys;
+package entityes;
 
 public class EntitysException extends RuntimeException {
 

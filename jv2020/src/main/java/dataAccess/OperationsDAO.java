@@ -2,7 +2,7 @@ package dataAccess;
 
 import java.util.List;
 
-import entitys.Identifiable;
+import entityes.Identifiable;
 
 public interface OperationsDAO {
 

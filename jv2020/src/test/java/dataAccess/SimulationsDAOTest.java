@@ -12,10 +12,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import dataAccess.db4o.SimulationsDAO;
-import entitys.Nif;
-import entitys.Simulation;
-import entitys.User;
-import entitys.World;
+import entityes.Nif;
+import entityes.Simulation;
+import entityes.User;
+import entityes.World;
 import utils.EasyDate;
 
 class SimulationsDAOTest {

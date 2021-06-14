@@ -5,7 +5,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import entitys.World.GridType;
+import entityes.Coordinate;
+import entityes.EntitysException;
+import entityes.World;
+import entityes.World.GridType;
 
 import org.junit.jupiter.api.AfterEach;
 import static org.junit.Assert.assertEquals;
@@ -63,5 +66,16 @@ public class WorldTest {
 			assertTrue(world2.getName() != null);			
 		}
 	}
+	
+	@Test
+    public void testSetNameNull() {
+        try {
+            world2.setName(null);
+            fail("No debe llegar aqui...");
+        } 
+        catch (AssertionError | EntitysException e) { 
+            assertTrue(world2.getName() != null);
+        }
+    }
 	
 }

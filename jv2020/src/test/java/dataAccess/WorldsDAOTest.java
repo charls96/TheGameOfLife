@@ -17,14 +17,14 @@ import org.junit.jupiter.api.Test;
 import dataAccess.DataAccessException;
 import dataAccess.DataFacade;
 import dataAccess.memory.WorldsDAO;
+import entityes.Address;
+import entityes.Mail;
+import entityes.Nif;
+import entityes.Password;
+import entityes.Session;
+import entityes.User;
+import entityes.World;
 import dataAccess.memory.UsersDAO;
-import entitys.Address;
-import entitys.Mail;
-import entitys.Nif;
-import entitys.Password;
-import entitys.Session;
-import entitys.World;
-import entitys.User;
 import utils.EasyDate;
 
 class WorldsDAOTest {

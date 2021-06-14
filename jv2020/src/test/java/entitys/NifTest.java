@@ -11,6 +11,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import entityes.Nif;
+
 public class NifTest {
 	private static Nif nifTest1; 
 	private Nif nifTest2; 

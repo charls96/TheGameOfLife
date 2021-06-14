@@ -9,6 +9,12 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import entityes.Address;
+import entityes.Mail;
+import entityes.Nif;
+import entityes.Password;
+import entityes.Session;
+import entityes.User;
 import utils.EasyDate;
 
 class SessionTest {
@@ -71,7 +77,7 @@ class SessionTest {
 	
 	@Test
 	void testEqualsObject() {	
-		// TODO Auto-generated method stub
+		assertEquals(this.sessionTest2.getUser(), userTest);
 	}
 
 	

@@ -12,9 +12,9 @@ import java.util.List;
 import dataAccess.DataAccessException;
 import dataAccess.OperationsDAO;
 import dataAccess.memory.IndexSortTemplate;
-import entitys.Identifiable;
-import entitys.Session;
-import entitys.Simulation;
+import entityes.Identifiable;
+import entityes.Session;
+import entityes.Simulation;
 import jLife.Configuration;
 import utils.EasyDate;
 

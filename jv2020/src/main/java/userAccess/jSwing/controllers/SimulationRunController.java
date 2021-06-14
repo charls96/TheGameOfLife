@@ -1,7 +1,7 @@
 package userAccess.jSwing.controllers;
 
-import entitys.Simulation;
-import entitys.World;
+import entityes.Simulation;
+import entityes.World;
 import jLife.Configuration;
 import userAccess.jSwing.views.SimulationRunView;
 
@@ -32,7 +32,7 @@ public class SimulationRunController {
 			this.world.updateGrid();
 			generation++;
 		}
-		while (generation <= simulation.getSimulationCicles());
+		while (generation <= simulation.getSimulationCycles());
 	}
 	
 	public Simulation getSimulation() {

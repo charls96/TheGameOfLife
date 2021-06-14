@@ -1,6 +1,8 @@
 package userAccess.console.controllers;
 
-import entitys.Simulation;
+import entityes.Simulation;
+import entityes.World;
+import entityes.Simulation.SimulationState;
 import userAccess.console.views.SimulationRunView;
 
 public class SimulationRunController {
@@ -20,8 +22,35 @@ public class SimulationRunController {
 	}
 	
 	private void runSimulation() {
-		this.simulation.getWorld().run(simulation.getSimulationCicles());
+		World world = this.simulation.getWorld();
+		int generation = 0; 
+		do {	
+			System.out.println("\nGeneración: " + generation);
+			this.showGrid();
+			this.simulation.getWorld().updateGrid();
+			generation++;
+		}
+		while (generation < this.simulation.getSimulationCycles());
+		
+		if (generation >= this.simulation.getSimulationCycles()) {
+			this.simulation.setState(SimulationState.FINISHED);
+		}
 	}
+	
+	/**
+	 * Despliega en la consola el estado almacenado, corresponde
+	 * a una generación del Juego de la vida.
+	 */
+	public void showGrid() {
+		byte[][] worldGrid = this.simulation.getWorld().getGrid();
+		for (int i = 0; i < worldGrid.length; i++) {
+			for (int j = 0; j < worldGrid.length; j++) {		
+				System.out.print((worldGrid[i][j] == 1) ? "|o" : "| ");
+			}
+			System.out.println("|");
+		}
+	}
+	
 	
 	public SimulationRunView getSimulationRunView() {
 		return this.simulationRunView;
