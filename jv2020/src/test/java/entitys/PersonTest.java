@@ -2,6 +2,14 @@ package entitys;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+
+import entityes.Address;
+import entityes.Mail;
+import entityes.Nif;
+import entityes.Password;
+import entityes.Person;
+import entityes.User;
+
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import utils.EasyDate;

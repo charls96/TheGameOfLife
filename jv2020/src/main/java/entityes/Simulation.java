@@ -1,8 +1,8 @@
-package entitys;
+package entityes;
 
 import java.io.Serializable;
 
-import entitys.Simulation.SimulationState;
+import entityes.Simulation.SimulationState;
 import utils.EasyDate;
 
 public class Simulation implements Identifiable, Serializable {

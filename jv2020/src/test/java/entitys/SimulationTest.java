@@ -9,7 +9,14 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import entitys.User.RoleUser;
+import entityes.Address;
+import entityes.Mail;
+import entityes.Nif;
+import entityes.Password;
+import entityes.Simulation;
+import entityes.User;
+import entityes.World;
+import entityes.User.RoleUser;
 import utils.EasyDate;
 
 public class SimulationTest {

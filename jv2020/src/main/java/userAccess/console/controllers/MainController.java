@@ -3,9 +3,9 @@ package userAccess.console.controllers;
 import java.util.List;
 
 import dataAccess.DataFacade;
-import entitys.Identifiable;
-import entitys.Session;
-import entitys.Simulation;
+import entityes.Identifiable;
+import entityes.Session;
+import entityes.Simulation;
 import jLife.Configuration;
 import userAccess.console.views.MainView;
 import utils.EasyDate;

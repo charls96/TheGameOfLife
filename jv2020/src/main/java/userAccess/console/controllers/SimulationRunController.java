@@ -1,8 +1,8 @@
 package userAccess.console.controllers;
 
-import entitys.Simulation;
-import entitys.Simulation.SimulationState;
-import entitys.World;
+import entityes.Simulation;
+import entityes.World;
+import entityes.Simulation.SimulationState;
 import userAccess.console.views.SimulationRunView;
 
 public class SimulationRunController {

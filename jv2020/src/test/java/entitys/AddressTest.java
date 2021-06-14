@@ -10,6 +10,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import entityes.Address;
+import entityes.EntitysException;
+
 
 public class AddressTest {
 	private static Address addressTest1; 

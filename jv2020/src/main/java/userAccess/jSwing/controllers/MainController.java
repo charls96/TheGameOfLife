@@ -6,8 +6,8 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 import dataAccess.DataFacade;
-import entitys.Session;
-import entitys.Simulation;
+import entityes.Session;
+import entityes.Simulation;
 import jLife.Configuration;
 import userAccess.jSwing.controllers.SimulationRunController;
 import userAccess.jSwing.views.MainView;

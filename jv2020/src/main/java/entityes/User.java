@@ -1,4 +1,4 @@
-package entitys;
+package entityes;
 
 import utils.EasyDate;
 

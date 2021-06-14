@@ -12,9 +12,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import dataAccess.db4o.SessionsDAO;
-import entitys.Nif;
-import entitys.Session;
-import entitys.User;
+import entityes.Nif;
+import entityes.Session;
+import entityes.User;
 import utils.EasyDate;
 
 class SessionsDAOTest {

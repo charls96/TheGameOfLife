@@ -9,9 +9,9 @@ import com.db4o.query.Query;
 
 import dataAccess.DataAccessException;
 import dataAccess.OperationsDAO;
-import entitys.Identifiable;
-import entitys.User;
-import entitys.World;
+import entityes.Identifiable;
+import entityes.User;
+import entityes.World;
 import jLife.Configuration;
 
 public class WorldsDAO implements OperationsDAO {

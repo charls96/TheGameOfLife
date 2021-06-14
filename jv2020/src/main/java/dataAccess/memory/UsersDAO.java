@@ -6,14 +6,14 @@ import java.util.List;
 
 import dataAccess.DataAccessException;
 import dataAccess.OperationsDAO;
-import entitys.Address;
-import entitys.Identifiable;
-import entitys.Mail;
-import entitys.EntitysException;
-import entitys.Nif;
-import entitys.Password;
-import entitys.User;
-import entitys.User.RoleUser;
+import entityes.Address;
+import entityes.EntitysException;
+import entityes.Identifiable;
+import entityes.Mail;
+import entityes.Nif;
+import entityes.Password;
+import entityes.User;
+import entityes.User.RoleUser;
 import jLife.Configuration;
 import utils.EasyDate;
 

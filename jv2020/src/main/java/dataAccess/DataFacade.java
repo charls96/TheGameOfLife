@@ -2,15 +2,15 @@ package dataAccess;
 
 import java.util.List;
 
-import dataAccess.mySql.UsersDAO;
+import dataAccess.db4o.UsersDAO;
 import dataAccess.db4o.SessionsDAO;
 import dataAccess.db4o.SimulationsDAO;
 import dataAccess.db4o.WorldsDAO;
-import entitys.Identifiable;
-import entitys.Session;
-import entitys.Simulation;
-import entitys.User;
-import entitys.World;
+import entityes.Identifiable;
+import entityes.Session;
+import entityes.Simulation;
+import entityes.User;
+import entityes.World;
 
 public class DataFacade {
 

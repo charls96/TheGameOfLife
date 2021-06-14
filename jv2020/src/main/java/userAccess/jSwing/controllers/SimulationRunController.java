@@ -1,7 +1,7 @@
 package userAccess.jSwing.controllers;
 
-import entitys.Simulation;
-import entitys.World;
+import entityes.Simulation;
+import entityes.World;
 import jLife.Configuration;
 import userAccess.jSwing.views.SimulationRunView;
 
