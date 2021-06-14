@@ -177,7 +177,7 @@ public class MainController implements ActionListener, WindowListener {
 
 	private void runSimulationDemo() {
 		Simulation simulationDemo = new Simulation();
-		simulationDemo.setSimulationCicles(Integer.parseInt((Configuration.get().getProperty("simulation.defaultCicles"))));
+		simulationDemo.setSimulationCycles(Integer.parseInt((Configuration.get().getProperty("simulation.defaultCycles"))));
 		new SimulationRunController(simulationDemo);
 	}
 

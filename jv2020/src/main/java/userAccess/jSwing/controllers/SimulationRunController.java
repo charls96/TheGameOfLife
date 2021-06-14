@@ -32,7 +32,7 @@ public class SimulationRunController {
 			this.world.updateGrid();
 			generation++;
 		}
-		while (generation <= simulation.getSimulationCicles());
+		while (generation <= simulation.getSimulationCycles());
 	}
 	
 	public Simulation getSimulation() {

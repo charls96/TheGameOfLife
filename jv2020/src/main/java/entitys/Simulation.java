@@ -2,18 +2,18 @@ package entitys;
 
 import java.io.Serializable;
 
+import entitys.Simulation.SimulationState;
 import utils.EasyDate;
 
 public class Simulation implements Identifiable, Serializable {
 	
-	public final int MIN_SIMULATION_CICLES = 20;
 	public enum SimulationState {PREPARED, RUNNING, FINISHED};
 	
 	private User user;
 	private EasyDate date;
 	private World world;
 	private SimulationState state;
-	private int simulationCicles;
+	private int simulationCycles;
 
 	public Simulation() {
 		this(new User(), EasyDate.now(), new World());
@@ -23,7 +23,7 @@ public class Simulation implements Identifiable, Serializable {
 		this.setUser(user);
 		this.setDate(date);
 		this.setWorld(world);
-		this.simulationCicles = Integer.MAX_VALUE;
+		this.simulationCycles = Integer.MAX_VALUE;
 		this.state = SimulationState.PREPARED;
 	}
 
@@ -32,13 +32,6 @@ public class Simulation implements Identifiable, Serializable {
 		this.user = simulation.user;
 		this.date =	EasyDate.today();
 		this.state = simulation.state;
-	}
-
-	public void run() {
-		this.state = SimulationState.RUNNING;
-		if (this.world.run(this.simulationCicles) >= simulationCicles) {
-			this.state = SimulationState.FINISHED;
-		}
 	}
 	
 	@Override
@@ -58,8 +51,8 @@ public class Simulation implements Identifiable, Serializable {
 		return world;
 	}
 	
-	public int getSimulationCicles() {
-		return this.simulationCicles;
+	public int getSimulationCycles() {
+		return this.simulationCycles;
 	}
 
 	public SimulationState getState() {
@@ -89,15 +82,18 @@ public class Simulation implements Identifiable, Serializable {
 		this.world = world;	
 	}
 
-	public void setSimulationCicles(int simulationCicles) {
-		if (simulationCicles > 0) {
-			this.simulationCicles = simulationCicles;
+	public void setSimulationCycles(int simulationCycles) {
+		if (simulationCycles > 0) {
+			this.simulationCycles = simulationCycles;
 			return;
 		}
 		throw new EntitysException("Simulation: Ciclos fuera de rango...");
 	}
 	
-	
+	public void setState(SimulationState state) {
+		assert state != null;
+		this.state = state;	
+	}
 	
 	@Override
 	public String toString() {
@@ -117,6 +113,5 @@ public class Simulation implements Identifiable, Serializable {
 	public Simulation clone() {
 		return new Simulation(this);
 	}
-	
 	
 } 

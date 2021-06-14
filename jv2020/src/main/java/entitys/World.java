@@ -127,18 +127,6 @@ public class World implements Identifiable, Serializable {
 		return this.name;
 	}
 
-	public int run(int cyclesRun) {
-		int generation = 0; 
-		do {
-			System.out.println("\nGeneración: " + generation);
-			this.showGrid();
-			this.updateGrid();
-			generation++;
-		}
-		while (generation < cyclesRun);
-		return generation;
-	}
-
 	static private List<Coordinate> distributionDemo() {
 		List<Coordinate> demo = new ArrayList<Coordinate>();
 		demo.add(new Coordinate(2,5));
@@ -164,20 +152,6 @@ public class World implements Identifiable, Serializable {
 		demo.add(new Coordinate(12,5));
 		demo.add(new Coordinate(12,6));
 		return demo;
-	}
-
-	/**
-	 * Despliega en la consola el estado almacenado, corresponde
-	 * a una generación del Juego de la vida.
-	 */
-	private void showGrid() {
-
-		for (int i = 0; i < this.grid.length; i++) {
-			for (int j = 0; j < this.grid.length; j++) {		
-				System.out.print((grid[i][j] == 1) ? "|o" : "| ");
-			}
-			System.out.println("|");
-		}
 	}
 
 	/**

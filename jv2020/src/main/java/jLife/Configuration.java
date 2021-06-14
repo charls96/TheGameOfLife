@@ -50,7 +50,7 @@ public class Configuration {
 		configuration.put("world.defaultName", "Demo");
 		configuration.put("world.defaultSize", "1");
 		configuration.put("world.defaultType", "EDGES");
-		configuration.put("simulation.defaultCicles", "35");
+		configuration.put("simulation.defaultCycles", "35");
 
 		configuration.put("user.admin", "admin");
 		configuration.put("user.adminNif", "00000000T");
