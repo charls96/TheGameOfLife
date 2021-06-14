@@ -71,7 +71,7 @@ class SessionTest {
 	
 	@Test
 	void testEqualsObject() {	
-		// TODO Auto-generated method stub
+		assertEquals(this.sessionTest2.getUser(), userTest);
 	}
 
 	
