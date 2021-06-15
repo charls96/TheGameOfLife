@@ -133,19 +133,19 @@ public class SessionsDAO implements OperationsDAO {
 	}
 	
 	@Override
-	public Identifiable delete(Identifiable session) throws DataAccessException {
-		return this.delete(session.getId());
-	}
+	public Identifiable delete(String id) throws DataAccessException  {
 	
-	public Identifiable delete(Identifiable session) throws DataAccessException {
-		assert obj != null;
-		int position = simulationsData.indexOf(session);
-		if (position > 0) {
-			return (Identifiable) simulationsData.remove(position);
-		}
+		int index = indexSort(this.sessionsData, id);
+		
+		if (index > 0) {	
+			Session  oldSession = (Session) this.sessionsData.remove(index - 1);
+			this.dataStore();
+			
+			return oldSession;
+		} 
 		else {
-			throw new DataAccessException("SimulationsDAO.delete:" + session + "no existe");
-		}
+			throw new DataAccessException("SessionsDAO.delete: "+ id + " no existe");
+		}			
 	}
 
 	public void close() {
