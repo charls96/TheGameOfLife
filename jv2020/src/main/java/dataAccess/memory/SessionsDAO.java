@@ -69,9 +69,19 @@ public class SessionsDAO extends IndexSortTemplate implements OperationsDAO {
 	}
 
 	@Override
-	public Identifiable update(Identifiable obj) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+	public Identifiable update(Identifiable session) throws DataAccessException {
+		assert session !=null;
+		int updatedIndex = indexSort(this.sessionsData, session.getId());
+		
+		if (updatedIndex > 0) {
+			Session oldSession = (Session) this.sessionsData.get(updatedIndex - 1);
+			this.sessionsData.set(updatedIndex - 1, session);
+			this.dataStore();
+			
+			return oldSession;
+		}
+		
+		throw new DataAccessException("SessionsDao.update: La simulación no existe...");
 	}
 
 	@Override
