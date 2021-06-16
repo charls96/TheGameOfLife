@@ -25,6 +25,32 @@ public class SessionsDAO extends IndexSortTemplate implements OperationsDAO {
 		return instance;
 	}
 	
+	private List<Identifiable> sessionsUserFilter(int lastIndex) {	
+	
+		String userId = ((Session) this.sessionsData.get(lastIndex)).getUser().getId();
+		int firstIndex = lastIndex;
+
+		for (int i = lastIndex; i >= 0 && ((Session) this.sessionsData.get(i)).getUser().getId().equals(userId); i--) {
+			firstIndex = i;
+		}
+
+		return this.sessionsData.subList(firstIndex, lastIndex + 1);
+	}
+	
+	public List<Identifiable> findAllUser(String userId) {	
+	
+		String LastSessionId = userId + ":" + new EasyDate().toStringTimeStamp();
+		int index = indexSort(this.sessionsData, LastSessionId);
+		
+		if (index > 0) {
+			return sessionsUserFilter(indexSort(this.sessionsData, LastSessionId) - 1);
+		}	
+		
+		return null;
+		
+	}
+
+	
 	@Override
 	public Identifiable find(String id) {
 		int pos = this.indexSort(this.sessionsData, id);
