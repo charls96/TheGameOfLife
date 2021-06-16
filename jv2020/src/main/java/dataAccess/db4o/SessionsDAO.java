@@ -131,6 +131,22 @@ public class SessionsDAO implements OperationsDAO {
 			this.db.delete(session);
 		}	
 	}
+	
+	@Override
+	public Identifiable delete(String id) throws DataAccessException  {
+	
+		int index = indexSort(this.sessionsData, id);
+		
+		if (index > 0) {	
+			Session  oldSession = (Session) this.sessionsData.remove(index - 1);
+			this.dataStore();
+			
+			return oldSession;
+		} 
+		else {
+			throw new DataAccessException("SessionsDAO.delete: "+ id + " no existe");
+		}			
+	}
 
 	public void close() {
 		this.db.close();	
